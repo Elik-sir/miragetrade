@@ -1,0 +1,18 @@
+.itemInfo {
+  color: white;
+  border: white 3px solid;
+  background-color: rgba(49, 48, 48, 0.719);
+  height: 100%;
+}
+.image-info {
+  width: 300px;
+}
+.btn-buy {
+  display: flex;
+  align-items: center;
+  background-color: rgb(252, 29, 40);
+  border: none;
+  font-size: 18px;
+  padding: 10px 30px;
+  margin: 15px;
+}

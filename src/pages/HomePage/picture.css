@@ -1,0 +1,25 @@
+.Picture {
+  background: url(https://steamcdn-a.akamaihd.net/steamcommunity/public/images/clans/3381077/d81306d2d9581df32202e9dcc2c8451797af091a.png)
+    no-repeat;
+  background-size: 100%;
+  width: 98vw;
+  height: 99vh;
+}
+.Offer {
+  position: absolute;
+  left: 32%;
+  top: 220px;
+  color: #ffa07afb;
+}
+.offer-btn {
+  font-size: 45px;
+  font-family: Roboto;
+  background-color: rgba(236, 79, 87, 0.473);
+  color: rgba(252, 115, 24, 0.966);
+  font-weight: bold;
+  border-radius: 7px;
+}
+.offer-btn:hover {
+  background-color: white;
+  color: #eb4b4b;
+}

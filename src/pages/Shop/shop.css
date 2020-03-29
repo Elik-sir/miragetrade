@@ -1,0 +1,9 @@
+.shopPage {
+  padding: 20px;
+  display: flex;
+  background-color: black;
+}
+.Items {
+  display: flex;
+  flex-wrap: wrap;
+}

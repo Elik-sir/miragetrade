@@ -1,0 +1,25 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  font-family: Proxima Nova;
+  align-items: center;
+  color: white;
+}
+.logo {
+  font-size: 40px;
+  color: white;
+}
+.signin {
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+}
+a {
+  color: white;
+  text-decoration: none;
+}
+.logout {
+  display: flex;
+  align-items: center;
+}
