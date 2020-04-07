@@ -2,7 +2,8 @@
   color: white;
   border: white 3px solid;
   background-color: rgba(49, 48, 48, 0.719);
-  height: 100%;
+  padding: 30px;
+  width: 300px;
 }
 .image-info {
   width: 300px;
@@ -15,4 +16,9 @@
   font-size: 18px;
   padding: 10px 30px;
   margin: 15px;
+}
+.emptyMessage {
+  width: 300px;
+  text-align: center;
+  height: 250px;
 }

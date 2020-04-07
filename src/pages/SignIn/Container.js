@@ -1,13 +1,12 @@
 import { connect } from 'react-redux';
 import SignIn from './Page';
-import { signIn, onGoogleSignIn } from '../../redux/reducers/common/actions';
+import { onGoogleSignIn } from '../../redux/reducers/common/actions';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   authInProgress: state.common.authInProgress,
 });
 
-const mapDispatchToProps = dispatch => ({
-  onSignIn: ({ email, password }) => dispatch(signIn({ email, password })),
+const mapDispatchToProps = (dispatch) => ({
   onGoogleSignIn: () => dispatch(onGoogleSignIn()),
 });
 const SignInContainer = connect(mapStateToProps, mapDispatchToProps)(SignIn);

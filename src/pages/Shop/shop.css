@@ -2,6 +2,7 @@
   padding: 20px;
   display: flex;
   background-color: black;
+  min-height: 89vh;
 }
 .Items {
   display: flex;

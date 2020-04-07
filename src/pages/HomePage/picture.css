@@ -1,25 +1,60 @@
+@media (min-width: 300px) and (max-width: 600px) {
+  .OfferText {
+    font-size: 24px;
+  }
+  .Offer {
+    display: block;
+    position: sticky;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    color: #ffa07afb;
+  }
+  .offer-btn {
+    font-size: 20px;
+    background-color: white;
+    color: rgba(252, 115, 24, 0.966);
+    padding: 5px 10px;
+    font-family: Roboto;
+    font-weight: bold;
+    border-radius: 7px;
+  }
+  .offer-btn:hover {
+    background-color: black;
+    color: #eb4b4b;
+  }
+}
+@media (min-width: 601px) {
+  .OfferText {
+    font-size: 50px;
+  }
+  .Offer {
+    display: block;
+    width: 600px;
+    color: #ffa07afb;
+  }
+  .offer-btn {
+    font-size: 40px;
+    background-color: white;
+    color: rgba(252, 115, 24, 0.966);
+    padding: 10px 20px;
+    font-family: Roboto;
+    font-weight: bold;
+    border-radius: 7px;
+  }
+  .offer-btn:hover {
+    background-color: black;
+    color: #eb4b4b;
+  }
+}
+
 .Picture {
   background: url(https://steamcdn-a.akamaihd.net/steamcommunity/public/images/clans/3381077/d81306d2d9581df32202e9dcc2c8451797af091a.png)
     no-repeat;
   background-size: 100%;
   width: 98vw;
-  height: 99vh;
-}
-.Offer {
-  position: absolute;
-  left: 32%;
-  top: 220px;
-  color: #ffa07afb;
-}
-.offer-btn {
-  font-size: 45px;
-  font-family: Roboto;
-  background-color: rgba(236, 79, 87, 0.473);
-  color: rgba(252, 115, 24, 0.966);
-  font-weight: bold;
-  border-radius: 7px;
-}
-.offer-btn:hover {
-  background-color: white;
-  color: #eb4b4b;
+  height: 80vh;
+  text-align: center;
+  display: flex;
+  justify-content: center;
 }

@@ -1,11 +1,6 @@
 .App {
-  text-align: center;
   background-color: black;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  font-family: 'Montserrat', sans-serif;
 }
 
 @media (prefers-reduced-motion: no-preference) {

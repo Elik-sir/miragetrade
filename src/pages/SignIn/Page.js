@@ -1,20 +1,21 @@
-import React, { useState } from "react";
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
-import { signInWithGoogle } from "../../firebase/firebase.utils";
+import React, { useState } from 'react';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import { signInWithGoogle } from '../../firebase/firebase.utils';
+import { Link } from 'react-router-dom';
 
-import { useStyles } from "./styles";
+import { useStyles } from './styles';
 
 //TODO Add Error handling
 const SignIn = ({ onSignIn, authInProgress }) => {
   const classes = useStyles();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  const changeEmail = e => setEmail(e.target.value);
-  const changePassword = e => setPassword(e.target.value);
+  const changeEmail = (e) => setEmail(e.target.value);
+  const changePassword = (e) => setPassword(e.target.value);
 
-  const onSignInSubmit = async event => {
+  const onSignInSubmit = async (event) => {
     event.preventDefault();
     onSignIn({ email, password });
   };
@@ -22,43 +23,43 @@ const SignIn = ({ onSignIn, authInProgress }) => {
   return (
     <div className={classes.background}>
       <form className={classes.container} onSubmit={onSignInSubmit}>
-        <h2 style={{ color: "white" }}>Авторизация</h2>
+        <h2 style={{ color: 'white' }}>Авторизация</h2>
         <TextField
-          id="login-input"
-          label="Email"
+          id='login-input'
+          label='Email'
           className={classes.textField}
-          type="text"
-          name="Email"
-          autoComplete="email"
-          margin="normal"
-          variant="outlined"
+          type='text'
+          name='Email'
+          autoComplete='email'
+          margin='normal'
+          variant='outlined'
           value={email}
           onChange={changeEmail}
         />
         <TextField
-          id="password-inupt"
-          label="Пароль"
+          id='password-inupt'
+          label='Пароль'
           className={classes.textField}
-          type="password"
-          name="password"
-          autoComplete="password"
-          margin="normal"
-          variant="outlined"
+          type='password'
+          name='password'
+          autoComplete='password'
+          margin='normal'
+          variant='outlined'
           value={password}
           onChange={changePassword}
         />
         <div className={classes.buttonsWrapper}>
           <Button
-            to={"/"}
-            variant="contained"
-            color="primary"
+            to={'/'}
+            variant='contained'
+            color='primary'
             className={classes.button}
           >
-            Отмена
+            <Link to='signup'>Регистрация</Link>
           </Button>
           <Button
-            variant="contained"
-            color="primary"
+            variant='contained'
+            color='primary'
             className={classes.button}
             disabled={authInProgress}
           >
@@ -66,8 +67,8 @@ const SignIn = ({ onSignIn, authInProgress }) => {
           </Button>
         </div>
         <Button
-          variant="contained"
-          color="primary"
+          variant='contained'
+          color='primary'
           disabled={authInProgress}
           className={classes.button}
           onClick={() => signInWithGoogle()}
