@@ -4,9 +4,9 @@ import { AddShoppingCart } from '@material-ui/icons';
 import { addItem } from '../../redux/cart/actions';
 import Button from '@material-ui/core/Button';
 import './item-info.css';
-const ItemInfo = ({ item, addItem, isLoading }) => (
+const ItemInfo = ({ item, addItem, isLoading, items }) => (
   <div className='itemInfo'>
-    {isLoading ? (
+    {isLoading || !items.error ? (
       <div className={'emptyMessage'}>
         <h1>Загрузка инвентаря</h1>
         <p>Если загрузка идёт больше минуты, перезагрузите страницу</p>
@@ -41,6 +41,7 @@ const ItemInfo = ({ item, addItem, isLoading }) => (
 );
 const mapStateToProps = (state) => ({
   item: state.items.currentItem,
+  items: state.items.items,
   isLoading: state.items.isLoading,
 });
 const mapDispatchToProps = (dispatch) => ({

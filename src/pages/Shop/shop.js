@@ -4,15 +4,16 @@ import ItemInfo from '../../components/item-info/item-info';
 import Item from '../../components/Item/item';
 import Sceletons from './sceleton';
 import Filters from './filters';
-import './shop.css';
+import { useStyles } from './styles';
 const ShopPage = ({ items, isLoading }) => {
+  const classes = useStyles();
   return (
     <div>
       <Filters />
 
-      <div className='shopPage'>
-        <div className='Items'>
-          {isLoading && items.length < 1 ? (
+      <div className={classes.shopPage}>
+        <div className={classes.Items}>
+          {(isLoading && items.length < 1) || items.error ? (
             <Sceletons />
           ) : (
             items.map((item) => (
@@ -24,7 +25,7 @@ const ShopPage = ({ items, isLoading }) => {
               />
             ))
           )}
-        </div>
+        </div>{' '}
         <div style={{ height: '250px' }}>
           <ItemInfo />
         </div>

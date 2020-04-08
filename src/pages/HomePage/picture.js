@@ -1,25 +1,33 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Grid from '@material-ui/core/Grid';
+import { useStyles } from './styles';
 import './picture.css';
-const Picture = () => (
-  <div className='Picture'>
-    <Grid container direction='row' justify='center' alignItems='center'>
-      <Grid item>
-        <div className='Offer'>
-          <h1 className='OfferText'>
-            Продаём скины дешевле, чем на
-            <br />
-            Торговой площадке
-          </h1>
-
-          <Link to='/shop' className='offer-btn' style={{ fontSize: '40px' }}>
-            МАГАЗИН
-          </Link>
+const Picture = () => {
+  const classes = useStyles();
+  return (
+    <div className={classes.Picture}>
+      <div className='Offer'>
+        <h1
+          className='OfferText'
+          style={{ position: 'realative', marginTop: '200px', zIndex: '1' }}
+        >
+          Продаём скины дешевле, чем на
+          <br />
+          Торговой площадке
+        </h1>
+      </div>
+      <div className={classes.wrapperFAQ}>
+        <div className={classes.FAQ}>
+          <div className={classes.ItemFAQ}>
+            <Link to='/reviews'>ОТЗЫВЫ</Link>
+          </div>
+          <div className={classes.ItemFAQ}>
+            <Link to='/faq'>FAQ</Link>
+          </div>
         </div>
-      </Grid>
-    </Grid>
-  </div>
-);
+      </div>
+    </div>
+  );
+};
 
 export default Picture;

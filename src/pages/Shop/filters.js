@@ -1,10 +1,8 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import './shop.css';
 const Filters = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [open, setOpen] = React.useState(false);
@@ -37,19 +35,28 @@ const Filters = () => {
     setOpen(false);
   };
   return (
-    <div>
-      <div>
-        <h1 style={{ color: 'white', display: 'inline-block' }}>
-          СПИСОК СКИНОВ
-        </h1>
-        <Button
-          variant='contained'
-          color='secondary'
-          onClick={handleClick}
-          style={{ marginLeft: '20px' }}
-        >
-          <span style={{ fontSize: '20px' }}>Фильтры</span>
-        </Button>
+    <div style={{ marginLeft: '24px' }}>
+      <div style={{ textAlign: 'left' }}>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <div>
+            <h1 style={{ color: 'white', display: 'inline-block' }}>
+              СПИСОК СКИНОВ
+            </h1>
+          </div>
+
+          <div>
+            {' '}
+            <Button
+              variant='contained'
+              color='secondary'
+              onClick={handleClick}
+              style={{ marginLeft: '20px' }}
+            >
+              <span style={{ fontSize: '20px' }}>Фильтры</span>
+            </Button>
+          </div>
+        </div>
+
         <Menu
           elevation={0}
           getContentAnchorEl={null}

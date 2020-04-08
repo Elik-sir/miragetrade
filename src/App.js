@@ -7,6 +7,8 @@ import SignIn from './pages/SignIn/Page';
 import Signup from './pages/SignUp/Signup';
 import ShopPage from './pages/Shop/shop';
 import CheckoutPage from './pages/checkout/CheckoutPage';
+import FaqPage from './pages/FaqPage/Page';
+import ReviewsPage from './pages/Reviews/Page';
 import HeaderContainer from './components/header/Header.container';
 import { getItems } from './redux/shop/actions';
 import { setCurrentUser } from './redux/user/actions';
@@ -43,6 +45,8 @@ const App = ({ getItems, setCurrentUser, currentUser }) => {
           path='/signin'
           render={() => (currentUser ? <Redirect to='/' /> : <SignIn />)}
         />
+        <Route exact path='/faq' component={FaqPage} />
+        <Route exact path='/reviews' component={ReviewsPage} />
         <Route
           exact
           path='/signup'

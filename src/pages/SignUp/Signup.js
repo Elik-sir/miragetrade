@@ -10,7 +10,7 @@ const Signup = ({ setCurrentUser }) => {
   const classes = useStyles();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [displayname, setDisplayname] = useState('');
+  const [displayName, setDisplayname] = useState('');
   const [confirmpassword, setConfirmpassword] = useState('');
   const changeEmail = (e) => setEmail(e.target.value);
   const changePassword = (e) => setPassword(e.target.value);
@@ -30,7 +30,7 @@ const Signup = ({ setCurrentUser }) => {
       );
       const photoURL =
         'https://sun9-51.userapi.com/c855620/v855620855/197c3/hiqkleeoI8I.jpg';
-      await createUserProfileDocument(user, { displayname, photoURL });
+      await createUserProfileDocument(user, { displayName, photoURL });
     } catch (error) {}
   };
 
@@ -44,7 +44,7 @@ const Signup = ({ setCurrentUser }) => {
           type='text'
           margin='normal'
           variant='outlined'
-          value={displayname}
+          value={displayName}
           onChange={changeName}
         />
 

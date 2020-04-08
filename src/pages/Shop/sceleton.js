@@ -2,9 +2,9 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Skeleton } from '@material-ui/lab';
 const Sceletons = () => {
-  const useStyles = makeStyles(theme => ({
+  const useStyles = makeStyles((theme) => ({
     root: {
-      backgroundColor: 'rgba(39, 33, 33, 0.815)',
+      backgroundColor: '#3A2727',
       margin: '5px',
     },
   }));
@@ -12,313 +12,313 @@ const Sceletons = () => {
   return (
     <>
       <Skeleton
-        variant="rect"
+        variant='rect'
         width={120}
         height={120}
-        animation="wave"
+        animation='wave'
         classes={{
           root: classes.root,
         }}
       />
 
       <Skeleton
-        variant="rect"
+        variant='rect'
         width={120}
         height={120}
-        animation="wave"
+        animation='wave'
         classes={{
           root: classes.root,
         }}
       />
 
       <Skeleton
-        variant="rect"
+        variant='rect'
         width={120}
         height={120}
-        animation="wave"
+        animation='wave'
         classes={{
           root: classes.root,
         }}
       />
 
       <Skeleton
-        variant="rect"
+        variant='rect'
         width={120}
         height={120}
-        animation="wave"
+        animation='wave'
         classes={{
           root: classes.root,
         }}
       />
       <Skeleton
-        variant="rect"
+        variant='rect'
         width={120}
         height={120}
-        animation="wave"
-        classes={{
-          root: classes.root,
-        }}
-      />
-
-      <Skeleton
-        variant="rect"
-        width={120}
-        height={120}
-        animation="wave"
+        animation='wave'
         classes={{
           root: classes.root,
         }}
       />
 
       <Skeleton
-        variant="rect"
+        variant='rect'
         width={120}
         height={120}
-        animation="wave"
+        animation='wave'
         classes={{
           root: classes.root,
         }}
       />
 
       <Skeleton
-        variant="rect"
+        variant='rect'
         width={120}
         height={120}
-        animation="wave"
-        classes={{
-          root: classes.root,
-        }}
-      />
-      <Skeleton
-        variant="rect"
-        width={120}
-        height={120}
-        animation="wave"
+        animation='wave'
         classes={{
           root: classes.root,
         }}
       />
 
       <Skeleton
-        variant="rect"
+        variant='rect'
         width={120}
         height={120}
-        animation="wave"
+        animation='wave'
+        classes={{
+          root: classes.root,
+        }}
+      />
+      <Skeleton
+        variant='rect'
+        width={120}
+        height={120}
+        animation='wave'
         classes={{
           root: classes.root,
         }}
       />
 
       <Skeleton
-        variant="rect"
+        variant='rect'
         width={120}
         height={120}
-        animation="wave"
+        animation='wave'
         classes={{
           root: classes.root,
         }}
       />
 
       <Skeleton
-        variant="rect"
+        variant='rect'
         width={120}
         height={120}
-        animation="wave"
-        classes={{
-          root: classes.root,
-        }}
-      />
-      <Skeleton
-        variant="rect"
-        width={120}
-        height={120}
-        animation="wave"
+        animation='wave'
         classes={{
           root: classes.root,
         }}
       />
 
       <Skeleton
-        variant="rect"
+        variant='rect'
         width={120}
         height={120}
-        animation="wave"
+        animation='wave'
+        classes={{
+          root: classes.root,
+        }}
+      />
+      <Skeleton
+        variant='rect'
+        width={120}
+        height={120}
+        animation='wave'
         classes={{
           root: classes.root,
         }}
       />
 
       <Skeleton
-        variant="rect"
+        variant='rect'
         width={120}
         height={120}
-        animation="wave"
+        animation='wave'
         classes={{
           root: classes.root,
         }}
       />
 
       <Skeleton
-        variant="rect"
+        variant='rect'
         width={120}
         height={120}
-        animation="wave"
-        classes={{
-          root: classes.root,
-        }}
-      />
-      <Skeleton
-        variant="rect"
-        width={120}
-        height={120}
-        animation="wave"
+        animation='wave'
         classes={{
           root: classes.root,
         }}
       />
 
       <Skeleton
-        variant="rect"
+        variant='rect'
         width={120}
         height={120}
-        animation="wave"
+        animation='wave'
+        classes={{
+          root: classes.root,
+        }}
+      />
+      <Skeleton
+        variant='rect'
+        width={120}
+        height={120}
+        animation='wave'
         classes={{
           root: classes.root,
         }}
       />
 
       <Skeleton
-        variant="rect"
+        variant='rect'
         width={120}
         height={120}
-        animation="wave"
+        animation='wave'
         classes={{
           root: classes.root,
         }}
       />
 
       <Skeleton
-        variant="rect"
+        variant='rect'
         width={120}
         height={120}
-        animation="wave"
-        classes={{
-          root: classes.root,
-        }}
-      />
-      <Skeleton
-        variant="rect"
-        width={120}
-        height={120}
-        animation="wave"
+        animation='wave'
         classes={{
           root: classes.root,
         }}
       />
 
       <Skeleton
-        variant="rect"
+        variant='rect'
         width={120}
         height={120}
-        animation="wave"
+        animation='wave'
+        classes={{
+          root: classes.root,
+        }}
+      />
+      <Skeleton
+        variant='rect'
+        width={120}
+        height={120}
+        animation='wave'
         classes={{
           root: classes.root,
         }}
       />
 
       <Skeleton
-        variant="rect"
+        variant='rect'
         width={120}
         height={120}
-        animation="wave"
+        animation='wave'
         classes={{
           root: classes.root,
         }}
       />
 
       <Skeleton
-        variant="rect"
+        variant='rect'
         width={120}
         height={120}
-        animation="wave"
-        classes={{
-          root: classes.root,
-        }}
-      />
-      <Skeleton
-        variant="rect"
-        width={120}
-        height={120}
-        animation="wave"
+        animation='wave'
         classes={{
           root: classes.root,
         }}
       />
 
       <Skeleton
-        variant="rect"
+        variant='rect'
         width={120}
         height={120}
-        animation="wave"
+        animation='wave'
+        classes={{
+          root: classes.root,
+        }}
+      />
+      <Skeleton
+        variant='rect'
+        width={120}
+        height={120}
+        animation='wave'
         classes={{
           root: classes.root,
         }}
       />
 
       <Skeleton
-        variant="rect"
+        variant='rect'
         width={120}
         height={120}
-        animation="wave"
+        animation='wave'
         classes={{
           root: classes.root,
         }}
       />
 
       <Skeleton
-        variant="rect"
+        variant='rect'
         width={120}
         height={120}
-        animation="wave"
-        classes={{
-          root: classes.root,
-        }}
-      />
-      <Skeleton
-        variant="rect"
-        width={120}
-        height={120}
-        animation="wave"
+        animation='wave'
         classes={{
           root: classes.root,
         }}
       />
 
       <Skeleton
-        variant="rect"
+        variant='rect'
         width={120}
         height={120}
-        animation="wave"
+        animation='wave'
+        classes={{
+          root: classes.root,
+        }}
+      />
+      <Skeleton
+        variant='rect'
+        width={120}
+        height={120}
+        animation='wave'
         classes={{
           root: classes.root,
         }}
       />
 
       <Skeleton
-        variant="rect"
+        variant='rect'
         width={120}
         height={120}
-        animation="wave"
+        animation='wave'
         classes={{
           root: classes.root,
         }}
       />
 
       <Skeleton
-        variant="rect"
+        variant='rect'
         width={120}
         height={120}
-        animation="wave"
+        animation='wave'
+        classes={{
+          root: classes.root,
+        }}
+      />
+
+      <Skeleton
+        variant='rect'
+        width={120}
+        height={120}
+        animation='wave'
         classes={{
           root: classes.root,
         }}
