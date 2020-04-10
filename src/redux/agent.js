@@ -4,29 +4,23 @@ import _superagent from 'superagent';
 
 const superagent = superagentPromise(_superagent, global.Promise);
 
-// export const API_ROOT = "http://iotfox.ru:20027/api";
-export const API_ROOT = 'http://localhost:3001'; //исправить!!!!
+export const API_ROOT =
+  'https://us-central1-miragetrade-7d6a1.cloudfunctions.net/app1';
 
-const responseBody = res => res.body;
+const responseBody = (res) => res.body;
 
 let token = null;
-const tokenPlugin = req => {
+const tokenPlugin = (req) => {
   if (token) {
     req.set('authorization', `Token ${token}`);
   }
 };
 
 const requests = {
-  del: url =>
-    superagent
-      .del(`${API_ROOT}${url}`)
-      .use(tokenPlugin)
-      .then(responseBody),
-  get: url =>
-    superagent
-      .get(`${API_ROOT}${url}`)
-      .use(tokenPlugin)
-      .then(responseBody),
+  del: (url) =>
+    superagent.del(`${API_ROOT}${url}`).use(tokenPlugin).then(responseBody),
+  get: (url) =>
+    superagent.get(`${API_ROOT}${url}`).use(tokenPlugin).then(responseBody),
   put: (url, body) =>
     superagent
       .put(`${API_ROOT}${url}`, body)
@@ -41,11 +35,11 @@ const requests = {
 
 const Items = {
   getAll: () => requests.get('/'),
-  getItemInfo: itemName => requests.post('/currentItem', { item: itemName }),
+  getItemInfo: (itemName) => requests.post('/currentItem', { item: itemName }),
 };
 export default {
   Items,
-  setToken: _token => {
+  setToken: (_token) => {
     token = _token;
   },
 };

@@ -9,28 +9,31 @@ import CheckoutItem from '../../components/checkout-item/checkout-item';
 import './CheckoutPage.styles.scss';
 
 const CheckoutPage = ({ cartItems, total }) => (
-  <div className="checkout-page">
-    <div className="checkout-header">
-      <div className="header-block">
-        <span>Item</span>
+  <div className='checkout-page'>
+    <div className='checkout-header'>
+      <div className='header-block'>
+        <span>Предмет</span>
       </div>
-      <div className="header-block">
-        <span>Description</span>
+      <div className='header-block'>
+        <span>Название</span>
       </div>
-      <div className="header-block">
-        <span>Quantity</span>
+      <div className='header-block'>
+        <span>Количество</span>
       </div>
-      <div className="header-block">
-        <span>Price</span>
+      <div className='header-block'>
+        <span>Цена</span>
       </div>
-      <div className="header-block">
-        <span>Remove</span>
+      <div className='header-block'>
+        <span>Подытог</span>
+      </div>
+      <div className='header-block'>
+        <span>Удалить</span>
       </div>
     </div>
     {cartItems.map((cartItem, id) => (
       <CheckoutItem key={id} cartItem={cartItem} />
     ))}
-    <div className="total">
+    <div className='total'>
       <span>ИТОГО: ${total.toFixed(2)}</span>
     </div>
   </div>

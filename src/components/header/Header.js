@@ -6,46 +6,23 @@ import MenuItem from '@material-ui/core/MenuItem';
 import CartDropdown from '../cart-dropdown/cart-dropdown';
 import { ReactComponent as Logo } from '../../assets/MIRAGETRADE.svg';
 import CartIcon from '../cart-icon/cart-icon';
-import { withStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import './Header.styles.css';
 import { auth } from '../../firebase/firebase.utils';
-
-const StyledMenu = withStyles({
-  paper: {
-    border: '1px solid #d3d4d5',
-  },
-})((props) => (
-  <Menu
-    elevation={0}
-    getContentAnchorEl={null}
-    anchorOrigin={{
-      vertical: 'bottom',
-      horizontal: 'center',
-    }}
-    transformOrigin={{
-      vertical: 'top',
-      horizontal: 'center',
-    }}
-    {...props}
-  />
-));
-
+import { useStyles } from './styles';
 const Header = ({ currentUser, toggleCartHidden, hidden }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [open, setOpen] = React.useState(null);
+  const classes = useStyles();
   const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-    if (currentUser) setOpen(true);
+    if (currentUser) setAnchorEl(event.currentTarget);
   };
 
   const handleClose = () => {
     setAnchorEl(null);
-    setOpen(null);
   };
 
   return (
-    <div className='header' style={{ height: '10vh', margin: '0' }}>
+    <div className={classes.header} style={{}}>
       <div
         className='logo'
         onClick={() => {
@@ -53,19 +30,23 @@ const Header = ({ currentUser, toggleCartHidden, hidden }) => {
         }}
         style={{ padding: '24px' }}
       >
-        <Link to='/'>
-          <Logo />
+        <Link to='/' className={classes.link}>
+          <Logo width='350px' />
         </Link>
       </div>
       <div className='signin'>
-        <div style={{ width: 'auto' }}>
+        <div
+          style={{
+            width: 'auto',
+          }}
+        >
           <Button>
-            <Link to='/shop' style={{ fontSize: '20px', fontWeight: 'normal' }}>
+            <Link to='/shop' className={classes.link}>
               МАГАЗИН
             </Link>
           </Button>
         </div>
-        <div style={{ cursor: 'pointer' }} className='logout'>
+        <div className={classes.logout}>
           <Button
             aria-controls='customized-menu'
             aria-haspopup='false'
@@ -74,25 +55,39 @@ const Header = ({ currentUser, toggleCartHidden, hidden }) => {
             {currentUser ? (
               <Avatar alt='avatar' src={currentUser.photoURL} />
             ) : (
-              <Link
-                to='/signin'
-                style={{ fontSize: '20px', fontWeight: 'normal' }}
-              >
+              <Link to='/signin' className={classes.link}>
                 ВОЙТИ
               </Link>
             )}
           </Button>
 
-          <StyledMenu
+          <Menu
             id='customized-menu'
             anchorEl={anchorEl}
-            open={open}
+            elevation={0}
+            getContentAnchorEl={null}
+            anchorOrigin={{
+              vertical: 'bottom',
+              horizontal: 'center',
+            }}
+            transformOrigin={{
+              vertical: 'top',
+              horizontal: 'center',
+            }}
+            open={Boolean(anchorEl)}
             keepMounted
             onClose={handleClose}
           >
             <MenuItem onClick={handleClose}>Профиль</MenuItem>
-            <MenuItem onClick={() => auth.signOut()}>Выйти</MenuItem>
-          </StyledMenu>
+            <MenuItem
+              onClick={(e) => {
+                auth.signOut();
+                handleClose(e);
+              }}
+            >
+              Выйти
+            </MenuItem>
+          </Menu>
         </div>
         <div onClick={() => toggleCartHidden()}>
           {<CartIcon color='white' />}

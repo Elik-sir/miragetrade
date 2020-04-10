@@ -8,7 +8,7 @@ const FaqItem = ({ quastion }) => (
       justifyContent: 'space-between',
       border: '1px solid white',
       borderRadius: '6px',
-      padding: '3px',
+      padding: '16px',
       alignItems: 'center',
     }}
   >

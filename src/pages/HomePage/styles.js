@@ -1,17 +1,18 @@
 import { makeStyles } from '@material-ui/core/styles';
 export const useStyles = makeStyles((theme) => ({
   title: {
-    color: '#F96464',
-    marginBottom: '100px',
-    marginTop: '50px',
+    color: '#e53935',
+    marginBottom: '80px',
+    marginTop: '80px',
   },
 
   Picture: {
     background:
       'url(https://steamcdn-a.akamaihd.net/steamcommunity/public/images/clans/3381077/d81306d2d9581df32202e9dcc2c8451797af091a.png) no-repeat',
-    backgroundSize: '100%',
-    marginLeft: '0.8vw',
-    width: '97vw',
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundAttachment: 'fixed',
+    width: '100%',
     height: '65vh',
     display: 'flex',
     justifyContent: 'center',
@@ -25,17 +26,21 @@ export const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-around',
     color: 'white',
     fontSize: '30px',
-    width: '95vw',
+    width: '100%',
     position: 'absolute',
-    backgroundColor: 'black',
-    opacity: '50%',
+    backgroundColor: 'rgba(0,0,0,0.5)',
     bottom: '0',
   },
+  wrapperFAQ: {},
   ItemFAQ: {
-    zIndex: '100',
     marginTop: 'auto',
     marginBottom: 'auto',
     color: 'white',
-    width: '45vw',
+  },
+  link: {
+    color: 'white',
+    textDecoration: 'none',
+    fontSize: '32px',
+    fontWeight: 'normal',
   },
 }));

@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { getItems } from '../../redux/shop/actions';
 import ItemInfo from '../../components/item-info/item-info';
 import Item from '../../components/Item/item';
 import Sceletons from './sceleton';
 import Filters from './filters';
 import { useStyles } from './styles';
-const ShopPage = ({ items, isLoading }) => {
+const ShopPage = ({ items, isLoading, getItems }) => {
+  useEffect(() => {
+    getItems();
+  }, [getItems]);
   const classes = useStyles();
   return (
     <div>
@@ -37,5 +41,7 @@ const mapStateToProps = (state) => ({
   items: state.items.items,
   isLoading: state.items.isLoading,
 });
-
-export default connect(mapStateToProps)(ShopPage);
+const mapDispatchToProps = (dispatch) => ({
+  getItems: () => dispatch(getItems()),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(ShopPage);

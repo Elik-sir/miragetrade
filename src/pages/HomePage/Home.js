@@ -1,14 +1,23 @@
 import React from 'react';
 import Picture from './picture';
-import Directory from '../../components/directory/directory';
+
+import Fade from 'react-reveal/Fade';
+import Features from '../../components/Features/Features';
 import { useStyles } from './styles';
 const HomePage = () => {
   const classes = useStyles();
   return (
     <div className='HomePage'>
       <Picture />
-      <h1 className={classes.title}>ПОЧЕМУ ИМЕННО МЫ ?</h1>
-      <Directory />
+      <h1 className={classes.title} color='secondary'>
+        ПОЧЕМУ ИМЕННО МЫ ?
+      </h1>
+      <Fade collapse bottom duration={2500}>
+        <Features />
+        <div style={{ height: '60px', textAlign: 'center', color: 'white' }}>
+          <span>© MIRAGETRADE 2020</span>
+        </div>
+      </Fade>
     </div>
   );
 };

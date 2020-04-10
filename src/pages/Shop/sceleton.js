@@ -4,7 +4,7 @@ import { Skeleton } from '@material-ui/lab';
 const Sceletons = () => {
   const useStyles = makeStyles((theme) => ({
     root: {
-      backgroundColor: '#3A2727',
+      backgroundColor: '#3b3a3ae9',
       margin: '5px',
     },
   }));

@@ -19,10 +19,14 @@ const Picture = () => {
       <div className={classes.wrapperFAQ}>
         <div className={classes.FAQ}>
           <div className={classes.ItemFAQ}>
-            <Link to='/reviews'>ОТЗЫВЫ</Link>
+            <Link to='/reviews' className={classes.link}>
+              ОТЗЫВЫ
+            </Link>
           </div>
           <div className={classes.ItemFAQ}>
-            <Link to='/faq'>FAQ</Link>
+            <Link to='/faq' className={classes.link}>
+              FAQ
+            </Link>
           </div>
         </div>
       </div>

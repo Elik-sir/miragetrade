@@ -1,0 +1,2 @@
+export const GET_REVIEWS = 'GET_REVIEWS';
+export const GET_COUNT_REVIEWS = 'GET_COUNT_REVIEWS';

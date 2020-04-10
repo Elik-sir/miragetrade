@@ -11,7 +11,8 @@ const config = {
   messagingSenderId: '537815951175',
   appId: '1:537815951175:web:dbb652424c4d3d6ca6ce62',
 };
-
+const app = firebase.initializeApp(config);
+export const firestore = firebase.firestore(app);
 export const createUserProfileDocument = async (userAuth, additionalData) => {
   if (!userAuth) return;
   const userRef = firestore.doc(`/users/${userAuth.uid}`);
@@ -34,9 +35,59 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   }
   return userRef;
 };
-firebase.initializeApp(config);
+
+export const getData = async (page) => {
+  const collectionRef = firestore.collection('reviews');
+  const collectionSnapShot = await collectionRef.get();
+
+  const first = firestore
+    .collection('reviews')
+    .orderBy('id', 'desc')
+    .startAt(collectionSnapShot.size - page * 4 + 4)
+    .limit(4);
+  return first.get().then((documentSnapshots) => {
+    return documentSnapshots.docs.map((doc) => {
+      const {
+        photoURL,
+        comment,
+        displayName,
+        value,
+        createdAt,
+        id,
+      } = doc.data();
+      return {
+        photoURL,
+        comment,
+        displayName,
+        value,
+        createdAt,
+        id,
+      };
+    });
+  });
+};
+
+export const getCountpage = async () => {
+  const collectionRef = firestore.collection('reviews');
+  const collectionSnapShot = await collectionRef.get();
+
+  return collectionSnapShot.size;
+};
+export const addReview = async (collectionKey, review) => {
+  const collectionRef = firestore.collection(collectionKey);
+  const lastid = firestore.collection('reviews');
+  await lastid.get().then((documentSnapshots) => {
+    review.id = documentSnapshots.docs.length + 1;
+  });
+  console.log(review.id);
+  const batch = firestore.batch();
+  const newDocRef = collectionRef.doc();
+  batch.set(newDocRef, review);
+  return await batch.commit();
+};
+
 export const auth = firebase.auth();
-export const firestore = firebase.firestore();
+
 const provider = new firebase.auth.GoogleAuthProvider();
 provider.setCustomParameters({ prompt: 'select_account' });
 export const signInWithGoogle = () => auth.signInWithPopup(provider);
