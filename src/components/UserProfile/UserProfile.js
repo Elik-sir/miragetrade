@@ -53,7 +53,7 @@ const UserProfile = ({ currentUser, toggle, open }) => {
         <TextField
           margin='dense'
           id='name'
-          label='avatar URL'
+          label='URL фотографии'
           onChange={(e) => setPhotoURL(e.target.value)}
           type='text'
           fullWidth

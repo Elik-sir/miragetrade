@@ -33,7 +33,7 @@ const ReviewsPage = ({
   return (
     <div className={classes.ReviewPage}>
       <div className={classes.title}>
-        <h1>Отзывы</h1>
+        <h1 style={{ marginTop: '0' }}>Отзывы</h1>
         <Grid
           container
           direction='column'

@@ -40,7 +40,7 @@ const Filters = () => {
   };
   const classes = useStyles();
   return (
-    <div style={{ width: '98%' }}>
+    <div style={{ width: '93%' }}>
       <div style={{ textAlign: 'left' }}>
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <div>

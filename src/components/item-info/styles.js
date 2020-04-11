@@ -28,4 +28,12 @@ export const useStyles = makeStyles((theme) => ({
     backgroundColor: '#3b3a3ae9',
     display: 'inline-block',
   },
+  priceWrapper: {
+    width: '150px',
+    height: '30px',
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    fontSize: '24px',
+  },
 }));

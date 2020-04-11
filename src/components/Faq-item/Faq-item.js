@@ -1,23 +1,37 @@
 import React from 'react';
-import { ArrowRightAlt } from '@material-ui/icons';
-const FaqItem = ({ quastion }) => (
-  <div
-    style={{
-      display: 'flex',
-      width: '610px',
-      justifyContent: 'space-between',
-      border: '1px solid white',
-      borderRadius: '6px',
-      padding: '16px',
-      alignItems: 'center',
-    }}
-  >
-    <div className='quastion' style={{ width: '70%', textAlign: 'left' }}>
-      {quastion}
+import { useStyles } from './styles';
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import Typography from '@material-ui/core/Typography';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+const FaqItem = ({ quastion, answer, id }) => {
+  const [expanded, setExpanded] = React.useState(false);
+
+  const handleChange = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
+
+  const classes = useStyles();
+  return (
+    <div>
+      <ExpansionPanel
+        classes={{ root: classes.expantion }}
+        expanded={expanded === `panel${id}`}
+        onChange={handleChange(`panel${id}`)}
+      >
+        <ExpansionPanelSummary
+          expandIcon={<ExpandMoreIcon color='secondary' />}
+          aria-controls={`panel${id}bh-content`}
+          id={`panel${id}bh-header`}
+        >
+          <Typography className={classes.heading}>{quastion}</Typography>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+          <Typography className={classes.heading}>{answer}</Typography>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
     </div>
-    <div style={{ width: '5%', cursor: 'pointer' }}>
-      <ArrowRightAlt />
-    </div>
-  </div>
-);
+  );
+};
 export default FaqItem;

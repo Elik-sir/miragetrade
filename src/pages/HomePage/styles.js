@@ -2,8 +2,8 @@ import { makeStyles } from '@material-ui/core/styles';
 export const useStyles = makeStyles((theme) => ({
   title: {
     color: '#e53935',
-    marginBottom: '80px',
-    marginTop: '80px',
+    marginBottom: '100px',
+    marginTop: '100px',
   },
 
   Picture: {

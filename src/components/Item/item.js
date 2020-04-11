@@ -8,17 +8,18 @@ const Item = ({
   exterior,
   color,
   getPrice,
+  id,
   changeCurrentItem,
 }) => {
-  const onSubmitItem = (name, image, exterior, color) => {
+  const onSubmitItem = (name, image, exterior, color, id) => {
     getPrice(name);
-    changeCurrentItem({ image, name, exterior, color });
+    changeCurrentItem({ image, name, exterior, color, id });
   };
   const classes = useStyles();
   return (
     <div
       className={classes.collectionItem}
-      onClick={() => onSubmitItem(name, image, exterior, color)}
+      onClick={() => onSubmitItem(name, image, exterior, color, id)}
       style={{ border: `1px solid #${color}` }}
     >
       <div

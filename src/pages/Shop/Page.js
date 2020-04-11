@@ -26,6 +26,7 @@ const ShopPage = ({ items, isLoading, getItems }) => {
                 name={item.name}
                 exterior={item.exterior}
                 color={item.raw.name_color}
+                id={item.id}
               />
             ))
           )}

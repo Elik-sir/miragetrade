@@ -38,16 +38,7 @@ const ItemInfo = ({
           <div className={classes.description}>
             <span>{item.exterior}</span>
           </div>
-          <div
-            style={{
-              width: '150px',
-              height: '30px',
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              fontSize: '24px',
-            }}
-          >
+          <div className={classes.priceWrapper}>
             <div>Цена:</div>
             <div>
               <span>
