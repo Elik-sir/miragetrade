@@ -10,8 +10,16 @@ import Avatar from '@material-ui/core/Avatar';
 import './Header.styles.css';
 import { auth } from '../../firebase/firebase.utils';
 import { useStyles } from './styles';
-const Header = ({ currentUser, toggleCartHidden, hidden }) => {
+import UserProfile from '../UserProfile/UserProfile';
+
+const Header = ({
+  currentUser,
+  toggleCartHidden,
+  hidden,
+  toggleUserProfile,
+}) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
+
   const classes = useStyles();
   const handleClick = (event) => {
     if (currentUser) setAnchorEl(event.currentTarget);
@@ -40,7 +48,11 @@ const Header = ({ currentUser, toggleCartHidden, hidden }) => {
             width: 'auto',
           }}
         >
-          <Button>
+          <Button
+            onClick={() => {
+              if (!hidden) toggleCartHidden();
+            }}
+          >
             <Link to='/shop' className={classes.link}>
               МАГАЗИН
             </Link>
@@ -50,10 +62,15 @@ const Header = ({ currentUser, toggleCartHidden, hidden }) => {
           <Button
             aria-controls='customized-menu'
             aria-haspopup='false'
-            onClick={handleClick}
+            onClick={(e) => {
+              handleClick(e);
+              if (!hidden) toggleCartHidden();
+            }}
           >
             {currentUser ? (
-              <Avatar alt='avatar' src={currentUser.photoURL} />
+              <>
+                <Avatar alt='avatar' src={currentUser.photoURL} />
+              </>
             ) : (
               <Link to='/signin' className={classes.link}>
                 ВОЙТИ
@@ -78,7 +95,14 @@ const Header = ({ currentUser, toggleCartHidden, hidden }) => {
             keepMounted
             onClose={handleClose}
           >
-            <MenuItem onClick={handleClose}>Профиль</MenuItem>
+            <MenuItem
+              onClick={(e) => {
+                handleClose(e);
+                toggleUserProfile();
+              }}
+            >
+              Профиль
+            </MenuItem>
             <MenuItem
               onClick={(e) => {
                 auth.signOut();
@@ -95,6 +119,7 @@ const Header = ({ currentUser, toggleCartHidden, hidden }) => {
       </div>
 
       {hidden ? null : <CartDropdown />}
+      {currentUser ? <UserProfile /> : null}
     </div>
   );
 };

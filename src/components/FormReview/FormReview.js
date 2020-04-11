@@ -5,8 +5,7 @@ import Rating from '@material-ui/lab/Rating';
 import Avatar from '@material-ui/core/Avatar';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import { addReview, getData } from '../../firebase/firebase.utils';
-import { getReviews } from '../../redux/common/actions';
+import { addReview } from '../../firebase/firebase.utils';
 import { useStyles } from './styles';
 
 const Formreview = ({ user }) => {
@@ -51,9 +50,7 @@ const Formreview = ({ user }) => {
             rows='4'
             variant='outlined'
             value={comment}
-            classes={{
-              root: classes.textField,
-            }}
+            className={classes.textField}
             onChange={handleChange}
           />
         </div>
@@ -72,7 +69,6 @@ const Formreview = ({ user }) => {
               displayName: user.displayName,
               id: 0,
             });
-            getReviews(getData(1));
             setComment('');
           }}
         >
@@ -84,8 +80,9 @@ const Formreview = ({ user }) => {
     )
   );
 };
-const mapStateToProps = (store) => ({
-  user: store.user.currentUser,
-  reviews: store.common.reviews,
+const mapStateToProps = (state) => ({
+  user: state.user.currentUser,
+  reviews: state.common.reviews,
 });
+
 export default connect(mapStateToProps)(Formreview);

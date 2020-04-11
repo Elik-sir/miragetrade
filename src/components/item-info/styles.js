@@ -2,8 +2,8 @@ import { makeStyles } from '@material-ui/core/styles';
 export const useStyles = makeStyles((theme) => ({
   itemInfo: {
     color: ' white',
-    border: ' white 3px solid',
-    backgroundColor: 'rgba(49, 48, 48, 0.719)',
+    border: ' 2px solid rgb(102, 99, 99);',
+    marginTop: '8px',
     padding: '32px',
     width: '300px',
   },
@@ -11,7 +11,9 @@ export const useStyles = makeStyles((theme) => ({
     width: '300px',
     height: '280px',
   },
-
+  description: {
+    margin: '8px 0',
+  },
   emptyMessage: {
     width: '300px',
     textAlign: ' center',
@@ -21,5 +23,9 @@ export const useStyles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     marginBottom: '0',
+  },
+  root: {
+    backgroundColor: '#3b3a3ae9',
+    display: 'inline-block',
   },
 }));

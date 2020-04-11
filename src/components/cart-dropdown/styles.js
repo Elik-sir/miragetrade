@@ -23,10 +23,24 @@ export const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     overflow: 'auto',
+    '&::-webkit-scrollbar': {
+      width: 6,
+      backgroundColor: '#414040',
+    },
+    '&::-webkit-scrollbar-thumb': {
+      borderRadius: '20px',
+      backgroundColor: theme.palette.primary.main,
+    },
   },
   checkoutbtn: {
     padding: '10px 3px',
     fontSize: '16px',
     marginTop: 'auto',
+  },
+  link: {
+    color: 'white',
+    textDecoration: 'none',
+    fontSize: '16px',
+    fontWeight: 'normal',
   },
 }));

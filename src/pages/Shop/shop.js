@@ -13,11 +13,10 @@ const ShopPage = ({ items, isLoading, getItems }) => {
   const classes = useStyles();
   return (
     <div>
-      <Filters />
-
       <div className={classes.shopPage}>
+        <Filters />
         <div className={classes.Items}>
-          {(isLoading && items.length < 1) || items.error ? (
+          {isLoading || items.error ? (
             <Sceletons />
           ) : (
             items.map((item) => (
@@ -25,11 +24,12 @@ const ShopPage = ({ items, isLoading, getItems }) => {
                 key={item.id}
                 image={item.image}
                 name={item.name}
-                market_name={item.market_name}
+                exterior={item.exterior}
+                color={item.raw.name_color}
               />
             ))
           )}
-        </div>{' '}
+        </div>
         <div style={{ height: '250px' }}>
           <ItemInfo />
         </div>
@@ -39,7 +39,7 @@ const ShopPage = ({ items, isLoading, getItems }) => {
 };
 const mapStateToProps = (state) => ({
   items: state.items.items,
-  isLoading: state.items.isLoading,
+  isLoading: state.items.isLoadingItems,
 });
 const mapDispatchToProps = (dispatch) => ({
   getItems: () => dispatch(getItems()),

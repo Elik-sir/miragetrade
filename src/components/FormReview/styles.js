@@ -8,7 +8,7 @@ export const useStyles = makeStyles({
   textField: {
     width: '100%',
     backgroundColor: '#414040',
-    color: 'white',
+    '& >div>textarea': { color: 'white' },
     '& > label': {
       color: 'white',
     },

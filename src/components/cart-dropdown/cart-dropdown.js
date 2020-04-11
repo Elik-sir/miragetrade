@@ -38,6 +38,7 @@ const CartDropdown = ({ cartItems, history, toggle }) => {
             history.push('/checkout');
             toggle();
           }}
+          className={classes.link}
         >
           Перейти в корзину
         </Link>

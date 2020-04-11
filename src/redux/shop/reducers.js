@@ -1,9 +1,11 @@
-import { GET_ITEMS, CURRENT_ITEM } from './constants';
+import { GET_ITEMS, CURRENT_ITEM, GET_PRICE } from './constants';
 import { ASYNC_START, ASYNC_END } from '../constants';
 const initial_state = {
   items: [],
   currentItem: '',
-  isLoading: false,
+  sale_price: '',
+  isLoadingItems: true,
+  isLoadingPrice: true,
 };
 
 const shopReducer = (state = initial_state, action) => {
@@ -14,20 +16,34 @@ const shopReducer = (state = initial_state, action) => {
       }
       return { ...state, items: action.payload };
     case ASYNC_START:
-      if (action.subtype === GET_ITEMS || CURRENT_ITEM) {
-        return { ...state, isLoading: true };
+      if (action.subtype === GET_ITEMS) {
+        return { ...state, isLoadingItems: true };
+      }
+      if (action.subtype === GET_PRICE) {
+        return { ...state, isLoadingPrice: true };
       }
       return { ...state };
     case ASYNC_END:
-      if (action.subtype === GET_ITEMS || CURRENT_ITEM) {
-        return { ...state, isLoading: false };
+      if (action.subtype === GET_ITEMS) {
+        return { ...state, isLoadingItems: false };
+      }
+      if (action.subtype === GET_PRICE) {
+        return { ...state, isLoadingPrice: false };
       }
       return { ...state };
-    case CURRENT_ITEM:
+    case GET_PRICE:
       if (action.error) {
         return { ...state, error: action.error, errorMessage: action.payload };
       }
-      return { ...state, currentItem: action.payload };
+      return {
+        ...state,
+        sale_price: action.payload,
+      };
+    case CURRENT_ITEM:
+      return {
+        ...state,
+        currentItem: action.payload,
+      };
     default:
       return state;
   }

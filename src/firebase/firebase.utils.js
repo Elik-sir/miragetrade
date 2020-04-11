@@ -66,7 +66,10 @@ export const getData = async (page) => {
     });
   });
 };
-
+export const changeAvatarandDisplayName = ({ id, displayName, photoURL }) => {
+  const sfDocRef = firestore.collection('users').doc(id);
+  sfDocRef.update({ displayName, photoURL });
+};
 export const getCountpage = async () => {
   const collectionRef = firestore.collection('reviews');
   const collectionSnapShot = await collectionRef.get();

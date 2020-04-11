@@ -5,7 +5,7 @@ const Sceletons = () => {
   const useStyles = makeStyles((theme) => ({
     root: {
       backgroundColor: '#3b3a3ae9',
-      margin: '5px',
+      margin: '8px',
     },
   }));
   const classes = useStyles();
@@ -13,8 +13,8 @@ const Sceletons = () => {
     <>
       <Skeleton
         variant='rect'
-        width={120}
-        height={120}
+        width={130}
+        height={130}
         animation='wave'
         classes={{
           root: classes.root,
@@ -23,8 +23,8 @@ const Sceletons = () => {
 
       <Skeleton
         variant='rect'
-        width={120}
-        height={120}
+        width={130}
+        height={130}
         animation='wave'
         classes={{
           root: classes.root,
@@ -33,8 +33,8 @@ const Sceletons = () => {
 
       <Skeleton
         variant='rect'
-        width={120}
-        height={120}
+        width={130}
+        height={130}
         animation='wave'
         classes={{
           root: classes.root,
@@ -43,17 +43,8 @@ const Sceletons = () => {
 
       <Skeleton
         variant='rect'
-        width={120}
-        height={120}
-        animation='wave'
-        classes={{
-          root: classes.root,
-        }}
-      />
-      <Skeleton
-        variant='rect'
-        width={120}
-        height={120}
+        width={130}
+        height={130}
         animation='wave'
         classes={{
           root: classes.root,
@@ -62,8 +53,8 @@ const Sceletons = () => {
 
       <Skeleton
         variant='rect'
-        width={120}
-        height={120}
+        width={130}
+        height={130}
         animation='wave'
         classes={{
           root: classes.root,
@@ -72,8 +63,8 @@ const Sceletons = () => {
 
       <Skeleton
         variant='rect'
-        width={120}
-        height={120}
+        width={130}
+        height={130}
         animation='wave'
         classes={{
           root: classes.root,
@@ -82,17 +73,8 @@ const Sceletons = () => {
 
       <Skeleton
         variant='rect'
-        width={120}
-        height={120}
-        animation='wave'
-        classes={{
-          root: classes.root,
-        }}
-      />
-      <Skeleton
-        variant='rect'
-        width={120}
-        height={120}
+        width={130}
+        height={130}
         animation='wave'
         classes={{
           root: classes.root,
@@ -101,8 +83,8 @@ const Sceletons = () => {
 
       <Skeleton
         variant='rect'
-        width={120}
-        height={120}
+        width={130}
+        height={130}
         animation='wave'
         classes={{
           root: classes.root,
@@ -111,8 +93,17 @@ const Sceletons = () => {
 
       <Skeleton
         variant='rect'
-        width={120}
-        height={120}
+        width={130}
+        height={130}
+        animation='wave'
+        classes={{
+          root: classes.root,
+        }}
+      />
+      <Skeleton
+        variant='rect'
+        width={130}
+        height={130}
         animation='wave'
         classes={{
           root: classes.root,
@@ -121,17 +112,8 @@ const Sceletons = () => {
 
       <Skeleton
         variant='rect'
-        width={120}
-        height={120}
-        animation='wave'
-        classes={{
-          root: classes.root,
-        }}
-      />
-      <Skeleton
-        variant='rect'
-        width={120}
-        height={120}
+        width={130}
+        height={130}
         animation='wave'
         classes={{
           root: classes.root,
@@ -140,8 +122,17 @@ const Sceletons = () => {
 
       <Skeleton
         variant='rect'
-        width={120}
-        height={120}
+        width={130}
+        height={130}
+        animation='wave'
+        classes={{
+          root: classes.root,
+        }}
+      />
+      <Skeleton
+        variant='rect'
+        width={130}
+        height={130}
         animation='wave'
         classes={{
           root: classes.root,
@@ -150,8 +141,8 @@ const Sceletons = () => {
 
       <Skeleton
         variant='rect'
-        width={120}
-        height={120}
+        width={130}
+        height={130}
         animation='wave'
         classes={{
           root: classes.root,
@@ -160,17 +151,8 @@ const Sceletons = () => {
 
       <Skeleton
         variant='rect'
-        width={120}
-        height={120}
-        animation='wave'
-        classes={{
-          root: classes.root,
-        }}
-      />
-      <Skeleton
-        variant='rect'
-        width={120}
-        height={120}
+        width={130}
+        height={130}
         animation='wave'
         classes={{
           root: classes.root,
@@ -179,8 +161,17 @@ const Sceletons = () => {
 
       <Skeleton
         variant='rect'
-        width={120}
-        height={120}
+        width={130}
+        height={130}
+        animation='wave'
+        classes={{
+          root: classes.root,
+        }}
+      />
+      <Skeleton
+        variant='rect'
+        width={130}
+        height={130}
         animation='wave'
         classes={{
           root: classes.root,
@@ -189,8 +180,8 @@ const Sceletons = () => {
 
       <Skeleton
         variant='rect'
-        width={120}
-        height={120}
+        width={130}
+        height={130}
         animation='wave'
         classes={{
           root: classes.root,
@@ -199,17 +190,8 @@ const Sceletons = () => {
 
       <Skeleton
         variant='rect'
-        width={120}
-        height={120}
-        animation='wave'
-        classes={{
-          root: classes.root,
-        }}
-      />
-      <Skeleton
-        variant='rect'
-        width={120}
-        height={120}
+        width={130}
+        height={130}
         animation='wave'
         classes={{
           root: classes.root,
@@ -218,8 +200,8 @@ const Sceletons = () => {
 
       <Skeleton
         variant='rect'
-        width={120}
-        height={120}
+        width={130}
+        height={130}
         animation='wave'
         classes={{
           root: classes.root,
@@ -228,8 +210,8 @@ const Sceletons = () => {
 
       <Skeleton
         variant='rect'
-        width={120}
-        height={120}
+        width={130}
+        height={130}
         animation='wave'
         classes={{
           root: classes.root,
@@ -238,17 +220,8 @@ const Sceletons = () => {
 
       <Skeleton
         variant='rect'
-        width={120}
-        height={120}
-        animation='wave'
-        classes={{
-          root: classes.root,
-        }}
-      />
-      <Skeleton
-        variant='rect'
-        width={120}
-        height={120}
+        width={130}
+        height={130}
         animation='wave'
         classes={{
           root: classes.root,
@@ -257,8 +230,8 @@ const Sceletons = () => {
 
       <Skeleton
         variant='rect'
-        width={120}
-        height={120}
+        width={130}
+        height={130}
         animation='wave'
         classes={{
           root: classes.root,
@@ -267,8 +240,8 @@ const Sceletons = () => {
 
       <Skeleton
         variant='rect'
-        width={120}
-        height={120}
+        width={130}
+        height={130}
         animation='wave'
         classes={{
           root: classes.root,
@@ -277,17 +250,8 @@ const Sceletons = () => {
 
       <Skeleton
         variant='rect'
-        width={120}
-        height={120}
-        animation='wave'
-        classes={{
-          root: classes.root,
-        }}
-      />
-      <Skeleton
-        variant='rect'
-        width={120}
-        height={120}
+        width={130}
+        height={130}
         animation='wave'
         classes={{
           root: classes.root,
@@ -296,8 +260,8 @@ const Sceletons = () => {
 
       <Skeleton
         variant='rect'
-        width={120}
-        height={120}
+        width={130}
+        height={130}
         animation='wave'
         classes={{
           root: classes.root,
@@ -306,8 +270,8 @@ const Sceletons = () => {
 
       <Skeleton
         variant='rect'
-        width={120}
-        height={120}
+        width={130}
+        height={130}
         animation='wave'
         classes={{
           root: classes.root,
@@ -316,8 +280,46 @@ const Sceletons = () => {
 
       <Skeleton
         variant='rect'
-        width={120}
-        height={120}
+        width={130}
+        height={130}
+        animation='wave'
+        classes={{
+          root: classes.root,
+        }}
+      />
+      <Skeleton
+        variant='rect'
+        width={130}
+        height={130}
+        animation='wave'
+        classes={{
+          root: classes.root,
+        }}
+      />
+
+      <Skeleton
+        variant='rect'
+        width={130}
+        height={130}
+        animation='wave'
+        classes={{
+          root: classes.root,
+        }}
+      />
+
+      <Skeleton
+        variant='rect'
+        width={130}
+        height={130}
+        animation='wave'
+        classes={{
+          root: classes.root,
+        }}
+      />
+      <Skeleton
+        variant='rect'
+        width={130}
+        height={130}
         animation='wave'
         classes={{
           root: classes.root,

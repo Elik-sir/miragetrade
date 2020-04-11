@@ -6,14 +6,23 @@ import Grid from '@material-ui/core/Grid';
 import Formreview from '../../components/FormReview/FormReview';
 import Pagination from '@material-ui/lab/Pagination';
 import { connect } from 'react-redux';
-import { getReviews, getCountReviews } from '../../redux/common/actions';
+import {
+  getReviews,
+  getCountReviews,
+  changeCurrentPage,
+} from '../../redux/common/actions';
 
-const ReviewsPage = ({ getReviews, getCountReviews, countPages }) => {
+const ReviewsPage = ({
+  getReviews,
+  getCountReviews,
+  countPages,
+  page,
+  changeCurrentPage,
+}) => {
   const classes = useStyles();
-  const [page, setPage] = React.useState(1);
 
   const handleChange = (event, value) => {
-    setPage(value);
+    changeCurrentPage(value);
     getReviews(getData(value));
   };
   useEffect(() => {
@@ -85,9 +94,11 @@ const ReviewsPage = ({ getReviews, getCountReviews, countPages }) => {
 const mapStateToProps = (state) => ({
   reviews: state.common.reviews,
   countPages: state.common.countPages,
+  page: state.common.currentPage,
 });
 const mapDispatchToProps = (dispatch) => ({
   getReviews: (reviews) => dispatch(getReviews(reviews)),
   getCountReviews: (count) => dispatch(getCountReviews(count)),
+  changeCurrentPage: (page) => dispatch(changeCurrentPage(page)),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(ReviewsPage);

@@ -6,11 +6,10 @@ import { useStyles } from './styles';
 const SignupForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [displayName, setDisplayname] = useState('');
   const [confirmpassword, setConfirmpassword] = useState('');
   const changeEmail = (e) => setEmail(e.target.value);
   const changePassword = (e) => setPassword(e.target.value);
-  const changeName = (e) => setDisplayname(e.target.value);
+
   const changeСonfirmpassword = (e) => setConfirmpassword(e.target.value);
   const classes = useStyles();
   const handleSubmit = async (event) => {
@@ -24,8 +23,14 @@ const SignupForm = () => {
         email,
         password,
       );
-      await createUserProfileDocument(user, { displayName, photoURL: '' });
-    } catch (error) {}
+
+      await createUserProfileDocument(user, {
+        displayName: email,
+        photoURL: '',
+      });
+    } catch (error) {
+      alert(error);
+    }
   };
   return (
     <>
@@ -38,16 +43,6 @@ const SignupForm = () => {
         onChange={changeEmail}
         autoComplete='email'
       />
-      <TextField
-        id='name-inupt'
-        type='text'
-        label='NickName'
-        fullWidth
-        className={classes.textField}
-        value={displayName}
-        onChange={changeName}
-      />
-
       <TextField
         id='password-inupt'
         type='password'

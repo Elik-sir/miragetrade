@@ -3,14 +3,15 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import Slider from '@material-ui/core/Slider';
+import { useStyles } from './styles';
 const Filters = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [open, setOpen] = React.useState(false);
   const [type, setType] = React.useState('');
   const [quality, setQuality] = React.useState('');
   const [cost, setCost] = React.useState('');
-  const [mincost, setMincost] = React.useState('');
-  const [maxcost, setMaxcost] = React.useState('');
+
   const changeType = (event) => {
     setType(event.target.value);
   };
@@ -20,22 +21,26 @@ const Filters = () => {
   const changeCost = (event) => {
     setCost(event.target.value);
   };
-  const changeMincost = (event) => {
-    setMincost(event.target.value);
-  };
-  const changeMaxcost = (event) => {
-    setMaxcost(event.target.value);
-  };
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
     setOpen(!open);
+  };
+  const [value, setValue] = React.useState([150, 400]);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
   };
 
   const handleClose = () => {
     setOpen(false);
   };
+  const valuetext = (value) => {
+    return `${value}$`;
+  };
+  const classes = useStyles();
   return (
-    <div style={{ marginLeft: '24px' }}>
+    <div style={{ width: '98%' }}>
       <div style={{ textAlign: 'left' }}>
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <div>
@@ -45,7 +50,6 @@ const Filters = () => {
           </div>
 
           <div>
-            {' '}
             <Button
               variant='contained'
               color='secondary'
@@ -73,6 +77,7 @@ const Filters = () => {
           keepMounted
           open={open}
           onClose={handleClose}
+          classes={{ paper: classes.filterMenu }}
         >
           <div
             style={{
@@ -88,7 +93,7 @@ const Filters = () => {
               label='Тип'
               value={type}
               onChange={changeType}
-              style={{ width: '180px', marginBottom: '9px' }}
+              className={classes.textField}
             >
               <MenuItem value={'SMG'}>Пистолет-пулемёты</MenuItem>
               <MenuItem value={'Pistols'}>Пистолеты</MenuItem>
@@ -100,7 +105,7 @@ const Filters = () => {
               label='Качество'
               value={quality}
               onChange={changeQuality}
-              style={{ width: '180px', marginBottom: '9px' }}
+              className={classes.textField}
             >
               <MenuItem value={'SMG'}>Только с завода</MenuItem>
               <MenuItem value={'Pistols'}>Не много поношенное</MenuItem>
@@ -110,33 +115,24 @@ const Filters = () => {
             <TextField
               id='standard-select-currency'
               select
-              label='Цена'
+              label='Сортировать цену'
               value={cost}
               onChange={changeCost}
-              style={{ width: '180px', marginBottom: '9px' }}
+              className={classes.textField}
             >
               <MenuItem value={'SMG'}>По возрастанию</MenuItem>
               <MenuItem value={'Pistols'}>По убыванию</MenuItem>
             </TextField>
-            <p style={{ marginBottom: '0' }}>Цена</p>
-            <TextField
-              id='standard-select-currency'
-              label='от'
-              value={mincost}
-              onChange={changeMincost}
-              style={{
-                width: '60px',
-                marginBottom: '9px',
-                marginRight: '15px',
-              }}
+            <p style={{ marginBottom: '0', marginTop: '-10px' }}>Цена $</p>
+            <Slider
+              value={value}
+              onChange={handleChange}
+              valueLabelDisplay='auto'
+              aria-labelledby='range-slider'
+              getAriaValueText={valuetext}
+              max={1000}
             />
-            <TextField
-              id='standard-select-currency'
-              label='до'
-              value={maxcost}
-              onChange={changeMaxcost}
-              style={{ width: '60px', marginBottom: '9px' }}
-            />
+
             <Button variant='contained' color='secondary'>
               <span style={{ fontSize: '20px' }}>Применить</span>
             </Button>
