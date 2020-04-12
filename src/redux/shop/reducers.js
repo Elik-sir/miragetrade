@@ -1,4 +1,4 @@
-import { GET_ITEMS, CURRENT_ITEM, GET_PRICE } from './constants';
+import { GET_ITEMS, CURRENT_ITEM, GET_PRICE, FILTER_ITEMS } from './constants';
 import { ASYNC_START, ASYNC_END } from '../constants';
 const initial_state = {
   items: [],
@@ -6,6 +6,7 @@ const initial_state = {
   sale_price: '',
   isLoadingItems: true,
   isLoadingPrice: true,
+  filter: '',
 };
 
 const shopReducer = (state = initial_state, action) => {
@@ -43,6 +44,11 @@ const shopReducer = (state = initial_state, action) => {
       return {
         ...state,
         currentItem: action.payload,
+      };
+    case FILTER_ITEMS:
+      return {
+        ...state,
+        filter: action.payload,
       };
     default:
       return state;

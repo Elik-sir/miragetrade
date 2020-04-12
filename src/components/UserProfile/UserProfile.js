@@ -23,61 +23,78 @@ const UserProfile = ({ currentUser, toggle, open }) => {
       aria-labelledby='form-dialog-title'
       classes={{ paper: classes.dialog }}
     >
-      <DialogTitle
-        id='form-dialog-title'
-        classes={{ root: classes.dialogTitle }}
-      >
-        Редактирование профиля
-      </DialogTitle>
-      <DialogContent>
-        <DialogContentText
-          style={{ textAlign: 'center', color: '#ffffff', fontSize: '24px' }}
+      <div style={{ backgroundColor: 'rgba(0,0,0,0.68)' }}>
+        <DialogTitle
+          id='form-dialog-title'
+          classes={{ root: classes.dialogTitle }}
         >
-          <Avatar
-            src={photoURL ? photoURL : currentUser.photoURL}
-            classes={{ root: classes.avatar }}
-          />
-          {displayName ? displayName : currentUser.displayName}
-        </DialogContentText>
+          Редактирование профиля
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText
+            style={{ textAlign: 'center', color: '#ffffff', fontSize: '24px' }}
+          >
+            <Avatar
+              src={photoURL ? photoURL : currentUser.photoURL}
+              classes={{ root: classes.avatar }}
+            />
+            {displayName ? displayName : currentUser.displayName}
+          </DialogContentText>
 
-        <TextField
-          margin='dense'
-          id='name'
-          label='NickName'
-          defaultValue={currentUser.displayName}
-          type='text'
-          onChange={(e) => setDisplayName(e.target.value)}
-          fullWidth
-          className={classes.textField}
-        />
-        <TextField
-          margin='dense'
-          id='name'
-          label='URL фотографии'
-          onChange={(e) => setPhotoURL(e.target.value)}
-          type='text'
-          fullWidth
-          className={classes.textField}
-        />
-      </DialogContent>
-      <DialogActions>
-        <Button onClick={() => toggle()} color='primary'>
-          Отмена
-        </Button>
-        <Button
-          onClick={() => {
-            toggle();
-            changeAvatarandDisplayName({
-              id: currentUser.id,
-              displayName,
-              photoURL,
-            });
-          }}
-          color='primary'
-        >
-          Изменить
-        </Button>
-      </DialogActions>
+          <TextField
+            margin='dense'
+            autoComplete='off'
+            id='name'
+            label='NickName'
+            type='text'
+            defaultValue={currentUser.displayName}
+            onChange={(e) => {
+              if (displayName.length < 20) setDisplayName(e.target.value);
+              else {
+                alert('NickName не может содержать больше 20 символов');
+                setDisplayName(displayName.slice(0, 19));
+              }
+            }}
+            value={displayName}
+            fullWidth
+            className={classes.textField}
+          />
+          <TextField
+            margin='dense'
+            autoComplete='off'
+            id='name'
+            label='URL фотографии'
+            onChange={(e) => setPhotoURL(e.target.value)}
+            type='text'
+            fullWidth
+            className={classes.textField}
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button
+            onClick={() => {
+              toggle();
+              setDisplayName('');
+            }}
+            color='primary'
+          >
+            Отмена
+          </Button>
+          <Button
+            onClick={() => {
+              toggle();
+              changeAvatarandDisplayName({
+                id: currentUser.id,
+                displayName,
+                photoURL,
+              });
+            }}
+            color='primary'
+          >
+            Изменить
+          </Button>
+        </DialogActions>
+      </div>
     </Dialog>
   );
 };

@@ -34,6 +34,7 @@ const ReviewsPage = ({
     <div className={classes.ReviewPage}>
       <div className={classes.title}>
         <h1 style={{ marginTop: '0' }}>Отзывы</h1>
+
         <Grid
           container
           direction='column'
@@ -45,13 +46,14 @@ const ReviewsPage = ({
             padding: '20px 0',
           }}
         >
-          <Grid item xs={12} sm={10} md={8} lg={6} style={{ heigth: '100vh' }}>
+          <Grid item xs={12} sm={10} md={8} lg={6}>
             <Reviews />
           </Grid>
+
           <Grid
             item
             style={{
-              margin: '16px 0',
+              margin: '32px 0',
               width: 'auto',
               marginLeft: 'auto',
               marginRight: 'auto',
@@ -79,6 +81,7 @@ const ReviewsPage = ({
             <Formreview />
           </Grid>
         </Grid>
+
         <div
           style={{
             width: 'auto',

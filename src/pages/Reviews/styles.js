@@ -1,9 +1,9 @@
 import { makeStyles } from '@material-ui/core/styles';
 export const useStyles = makeStyles((theme) => ({
   ReviewPage: {
-    minHeight: '100vh',
     height: '100%',
     color: 'white',
+    paddingBottom: '32px',
   },
   root: {
     backgroundColor: '#414040',

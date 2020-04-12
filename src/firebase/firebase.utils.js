@@ -68,7 +68,15 @@ export const getData = async (page) => {
 };
 export const changeAvatarandDisplayName = ({ id, displayName, photoURL }) => {
   const sfDocRef = firestore.collection('users').doc(id);
-  sfDocRef.update({ displayName, photoURL });
+  if (photoURL && displayName) {
+    sfDocRef.update({ displayName, photoURL });
+  }
+  if (photoURL) {
+    sfDocRef.update({ photoURL });
+  }
+  if (displayName) {
+    sfDocRef.update({ displayName });
+  }
 };
 export const getCountpage = async () => {
   const collectionRef = firestore.collection('reviews');

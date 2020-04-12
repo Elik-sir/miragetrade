@@ -1,11 +1,13 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { filterItems } from '../../redux/shop/actions';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Slider from '@material-ui/core/Slider';
 import { useStyles } from './styles';
-const Filters = () => {
+const Filters = ({ filter }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [open, setOpen] = React.useState(false);
   const [type, setType] = React.useState('');
@@ -40,7 +42,7 @@ const Filters = () => {
   };
   const classes = useStyles();
   return (
-    <div style={{ width: '93%' }}>
+    <div style={{ width: '95%' }}>
       <div style={{ textAlign: 'left' }}>
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <div>
@@ -81,7 +83,7 @@ const Filters = () => {
         >
           <div
             style={{
-              width: '200px',
+              width: '240px',
               paddingLeft: '10px',
               textAlign: 'center',
               paddingRight: '10px',
@@ -96,8 +98,9 @@ const Filters = () => {
               className={classes.textField}
             >
               <MenuItem value={'SMG'}>Пистолет-пулемёты</MenuItem>
-              <MenuItem value={'Pistols'}>Пистолеты</MenuItem>
-              <MenuItem value={'Heavy'}>тяжёлое</MenuItem>
+              <MenuItem value={'Pistol'}>Пистолеты</MenuItem>
+              <MenuItem value={'Rifle'}>Винтовки</MenuItem>
+              <MenuItem value={'Shotgun'}>Тяжёлое</MenuItem>
             </TextField>
             <TextField
               id='standard-select-currency'
@@ -108,7 +111,7 @@ const Filters = () => {
               className={classes.textField}
             >
               <MenuItem value={'SMG'}>Только с завода</MenuItem>
-              <MenuItem value={'Pistols'}>Не много поношенное</MenuItem>
+              <MenuItem value={'Pistol'}>Не много поношенное</MenuItem>
               <MenuItem value={'Heavy'}>После полевых</MenuItem>
             </TextField>
 
@@ -132,14 +135,34 @@ const Filters = () => {
               getAriaValueText={valuetext}
               max={1000}
             />
-
-            <Button variant='contained' color='secondary'>
-              <span style={{ fontSize: '20px' }}>Применить</span>
-            </Button>
+            <div style={{ display: 'inline-block' }}>
+              <Button
+                variant='contained'
+                color='secondary'
+                onClick={() => {
+                  filter('');
+                  setType('');
+                  setQuality('');
+                }}
+                style={{ marginRight: '8px' }}
+              >
+                <span style={{ fontSize: '14px' }}>Сбросить</span>
+              </Button>
+              <Button
+                variant='contained'
+                color='primary'
+                onClick={() => filter(type)}
+              >
+                <span style={{ fontSize: '14px' }}>Применить</span>
+              </Button>
+            </div>
           </div>
         </Menu>
       </div>
     </div>
   );
 };
-export default Filters;
+const mapDispatchToProps = (dispatch) => ({
+  filter: (filter) => dispatch(filterItems(filter)),
+});
+export default connect(null, mapDispatchToProps)(Filters);

@@ -39,7 +39,9 @@ const ShopPage = ({ items, isLoading, getItems }) => {
   );
 };
 const mapStateToProps = (state) => ({
-  items: state.items.items,
+  items: state.items.filter
+    ? state.items.items.filter((item) => item.type === state.items.filter)
+    : state.items.items,
   isLoading: state.items.isLoadingItems,
 });
 const mapDispatchToProps = (dispatch) => ({

@@ -13,7 +13,7 @@ const Reviews = ({ reviews }) => {
     <div className={classes.Reviews}>
       <TransitionGroup {...{ appear: true, enter: true, exit: true }}>
         {reviews.map((review, id) => (
-          <Fade key={review.id} collapse bottom>
+          <Fade key={review.id} collapse left>
             <div className={classes.fade}>
               <ReviewItem
                 key={id}
