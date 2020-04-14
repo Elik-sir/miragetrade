@@ -10,7 +10,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import { toggleUserProfile } from '../../redux/common/actions';
+import { toggleDialog } from '../../redux/common/actions';
 
 const UserProfile = ({ currentUser, toggle, open }) => {
   const classes = useStyles();
@@ -19,7 +19,7 @@ const UserProfile = ({ currentUser, toggle, open }) => {
   return (
     <Dialog
       open={open}
-      onClose={() => toggle()}
+      onClose={() => toggle('UserProfile')}
       aria-labelledby='form-dialog-title'
       classes={{ paper: classes.dialog }}
     >
@@ -73,7 +73,7 @@ const UserProfile = ({ currentUser, toggle, open }) => {
         <DialogActions>
           <Button
             onClick={() => {
-              toggle();
+              toggle('UserProfile');
               setDisplayName('');
             }}
             color='primary'
@@ -82,7 +82,7 @@ const UserProfile = ({ currentUser, toggle, open }) => {
           </Button>
           <Button
             onClick={() => {
-              toggle();
+              toggle('UserProfile');
               changeAvatarandDisplayName({
                 id: currentUser.id,
                 displayName,
@@ -100,12 +100,12 @@ const UserProfile = ({ currentUser, toggle, open }) => {
 };
 
 const mapStateToProps = (state) => ({
-  open: state.common.toggleUserProfile,
+  open: state.common.toggleDialog,
   currentUser: state.user.currentUser,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  toggle: () => dispatch(toggleUserProfile()),
+  toggle: (typeDialog) => dispatch(toggleDialog(typeDialog)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserProfile);

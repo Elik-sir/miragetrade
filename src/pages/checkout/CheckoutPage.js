@@ -5,10 +5,12 @@ import {
   selectCartItems,
   selectCartTotal,
 } from '../../redux/cart/cart.selectors';
+import { toggleDialogWindowPay } from '../../redux/common/actions';
 import CheckoutItem from '../../components/checkout-item/checkout-item';
 import Button from '@material-ui/core/Button';
+import WindowPay from './windowPay';
 import { useStyles } from './styles';
-const CheckoutPage = ({ cartItems, total }) => {
+const CheckoutPage = ({ cartItems, total, toggleDialog }) => {
   const classes = useStyles();
   return (
     <div className={classes.checkoutPage}>
@@ -41,14 +43,18 @@ const CheckoutPage = ({ cartItems, total }) => {
         </div>
       </div>
       <div>
-        <Button
-          variant='contained'
-          color='primary'
-          classes={{ root: classes.btnBay }}
-        >
-          КУПИТЬ
-        </Button>
+        {cartItems.length ? (
+          <Button
+            variant='contained'
+            color='primary'
+            classes={{ root: classes.btnBay }}
+            onClick={() => toggleDialog()}
+          >
+            КУПИТЬ
+          </Button>
+        ) : null}
       </div>
+      <WindowPay />
     </div>
   );
 };
@@ -56,4 +62,7 @@ const mapStateToProps = createStructuredSelector({
   cartItems: selectCartItems,
   total: selectCartTotal,
 });
-export default connect(mapStateToProps)(CheckoutPage);
+const mapDispatchToProps = (dispatch) => ({
+  toggleDialog: () => dispatch(toggleDialogWindowPay()),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(CheckoutPage);

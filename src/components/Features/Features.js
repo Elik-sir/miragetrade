@@ -7,7 +7,7 @@ import { ReactComponent as Weapon3 } from './Path 10.svg';
 import './menu-item.scss';
 const Features = ({ history }) => {
   return (
-    <div style={{ width: '97%', padding: '16px' }}>
+    <div style={{ width: '100%', padding: '0' }}>
       <Grid container direction='row' justify='center' alignItems='center'>
         <Grid item lg={4} md={4} xs={12} sm={4}>
           <div className='menu-item'>
@@ -76,7 +76,7 @@ const Features = ({ history }) => {
           </div>
         </Grid>
 
-        <Grid item xs={12} md={12} sm={12} lg={12} style={{}}>
+        <Grid item xs={12} md={12} sm={12} lg={12}>
           <div
             className={'large menu-item'}
             onClick={() => history.push('/shop')}

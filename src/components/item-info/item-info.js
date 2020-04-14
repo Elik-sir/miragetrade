@@ -5,6 +5,7 @@ import { addItem } from '../../redux/cart/actions';
 import Button from '@material-ui/core/Button';
 import { Skeleton } from '@material-ui/lab';
 import { useStyles } from './styles';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 const ItemInfo = ({
   item,
   addItem,
@@ -13,7 +14,9 @@ const ItemInfo = ({
   sale_price,
   items,
 }) => {
-  const classes = useStyles();
+  const matches = useMediaQuery('(min-width:600px)');
+  const props = {matches}
+  const classes = useStyles(props);
   return (
     <div
       className={classes.itemInfo}
@@ -43,15 +46,15 @@ const ItemInfo = ({
             <div>
               <span>
                 {isLoadingPrice ? (
-                  <>
+                  <div style={{ marginTop: '3px' }}>
                     <Skeleton
                       variant='rect'
                       width={80}
-                      height={25}
+                      height={21}
                       animation='wave'
                       classes={{ root: classes.root }}
                     />
-                  </>
+                  </div>
                 ) : (
                   ` ${sale_price}$`
                 )}

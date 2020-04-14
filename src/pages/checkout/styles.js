@@ -4,7 +4,6 @@ export const useStyles = makeStyles((theme) => ({
     width: '55%',
     textAlign: 'center',
     color: 'white',
-    minHeight: '90vh',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -18,12 +17,14 @@ export const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-between',
     borderBottom: '1px solid darkgrey',
     '&:last-child': {
-      width: '8%',
+      width: '13%',
+      textAlign: 'right',
     },
   },
   headerBlock: {
     textTransform: 'capitalize',
-    width: '23%',
+    width: '16%',
+    textAlign: 'center',
   },
   total: {
     marginTop: '30px',

@@ -6,11 +6,12 @@ export const useStyles = makeStyles((theme) => ({
     minHeight: '100px',
     borderBottom: '1px solid darkgrey',
     padding: '15px 0',
-    fontSize: '20px',
+    fontSize: '16px',
     alignItems: 'center',
+    justifyContent: 'space-between',
   },
   imageContainer: {
-    width: '23%',
+    width: '16%',
   },
 
   img: {
@@ -18,16 +19,16 @@ export const useStyles = makeStyles((theme) => ({
     height: '100%',
   },
   name: {
-    width: '23%',
+    width: '16%',
   },
 
   price: {
-    width: '23%',
+    width: '16%',
   },
   quantity: {
     display: 'flex',
     justifyContent: 'center',
-    width: '23%',
+    width: '16%',
   },
   arrow: {
     cursor: ' pointer',
@@ -37,7 +38,7 @@ export const useStyles = makeStyles((theme) => ({
   },
 
   removeButton: {
-    paddingLeft: '30px',
+    width: '16%',
     cursor: 'pointer',
   },
 }));

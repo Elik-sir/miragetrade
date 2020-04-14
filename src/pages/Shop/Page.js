@@ -10,11 +10,14 @@ const ShopPage = ({ items, isLoading, getItems }) => {
   useEffect(() => {
     getItems();
   }, [getItems]);
+
   const classes = useStyles();
+
   return (
     <div>
       <div className={classes.shopPage}>
         <Filters />
+
         <div className={classes.Items}>
           {isLoading || items.error ? (
             <Sceletons />

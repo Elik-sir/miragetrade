@@ -2,7 +2,8 @@ import {
   GET_REVIEWS,
   GET_COUNT_REVIEWS,
   CHANGE_CURRENT_PAGE,
-  TOGGLE_USERPROFILE,
+  TOGGLE_DIALOG,
+  TOGGLE_DIALOG_WINDOWPAY,
 } from './constant';
 
 export const getReviews = (reviews) => ({
@@ -17,6 +18,9 @@ export const changeCurrentPage = (number) => ({
   type: CHANGE_CURRENT_PAGE,
   payload: number,
 });
-export const toggleUserProfile = () => ({
-  type: TOGGLE_USERPROFILE,
+export const toggleDialog = () => ({
+  type: TOGGLE_DIALOG,
+});
+export const toggleDialogWindowPay = () => ({
+  type: TOGGLE_DIALOG_WINDOWPAY,
 });

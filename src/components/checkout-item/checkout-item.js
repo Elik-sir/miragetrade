@@ -29,10 +29,12 @@ const CheckoutItem = ({ cartItem, clearItem, addItem, removeItem }) => {
           <KeyboardArrowRight />
         </div>
       </div>
-      <span className={classes.price}>${sale_price}</span>
-      <span className={classes.price}>
-        ${(sale_price * quantity).toFixed(2)}
-      </span>
+      <div className={classes.price}>
+        <span>${sale_price}</span>
+      </div>
+      <div className={classes.price}>
+        <span>${(sale_price * quantity).toFixed(2)}</span>
+      </div>
       <div className={classes.removeButton} onClick={() => clearItem(cartItem)}>
         <DeleteOutline />
       </div>

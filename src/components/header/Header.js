@@ -11,16 +11,13 @@ import './Header.styles.css';
 import { auth } from '../../firebase/firebase.utils';
 import { useStyles } from './styles';
 import UserProfile from '../UserProfile/UserProfile';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
-const Header = ({
-  currentUser,
-  toggleCartHidden,
-  hidden,
-  toggleUserProfile,
-}) => {
+const Header = ({ currentUser, toggleCartHidden, hidden, toggleDialog }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
-
-  const classes = useStyles();
+  const matches = useMediaQuery('(min-width:600px)');
+  const props = { matches: matches };
+  const classes = useStyles(props);
   const handleClick = (event) => {
     if (currentUser) setAnchorEl(event.currentTarget);
   };
@@ -39,7 +36,7 @@ const Header = ({
         style={{ padding: '24px' }}
       >
         <Link to='/' className={classes.link}>
-          <Logo width='350px' />
+          <Logo width={matches ? '350px' : '150px'} />
         </Link>
       </div>
       <div className='signin'>
@@ -98,7 +95,7 @@ const Header = ({
             <MenuItem
               onClick={(e) => {
                 handleClose(e);
-                toggleUserProfile();
+                toggleDialog();
               }}
             >
               Профиль

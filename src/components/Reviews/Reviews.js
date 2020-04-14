@@ -6,14 +6,14 @@ import ReviewItem from '../Review-item/Review-item';
 import { format } from 'date-fns';
 import Fade from 'react-reveal/Fade';
 import TransitionGroup from 'react-transition-group/TransitionGroup';
-const Reviews = ({ reviews }) => {
+const Reviews = ({ reviews, isLoading }) => {
   const classes = useStyles();
 
   return (
     <div className={classes.Reviews}>
       <TransitionGroup {...{ appear: true, enter: true, exit: true }}>
         {reviews.map((review, id) => (
-          <Fade key={review.id} collapse left>
+          <Fade key={review.id} bottom collapse duration={1500}>
             <div className={classes.fade}>
               <ReviewItem
                 key={id}
@@ -35,6 +35,7 @@ const Reviews = ({ reviews }) => {
 };
 const mapStateToProps = (state) => ({
   reviews: state.common.reviews,
+  isLoading: state.common.isLoading,
 });
 
 export default connect(mapStateToProps)(Reviews);

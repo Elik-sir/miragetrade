@@ -2,7 +2,8 @@ import {
   GET_REVIEWS,
   GET_COUNT_REVIEWS,
   CHANGE_CURRENT_PAGE,
-  TOGGLE_USERPROFILE,
+  TOGGLE_DIALOG,
+  TOGGLE_DIALOG_WINDOWPAY,
 } from './constant';
 import { ASYNC_START, ASYNC_END } from '../constants';
 
@@ -11,7 +12,8 @@ const defaultState = {
   countPages: 1,
   isLoading: true,
   currentPage: 1,
-  toggleUserProfile: false,
+  toggleDialog: false,
+  toggleWindowPay: false,
 };
 
 const commonReducer = (state = defaultState, action) => {
@@ -44,10 +46,15 @@ const commonReducer = (state = defaultState, action) => {
         ...state,
         currentPage: action.payload,
       };
-    case TOGGLE_USERPROFILE:
+    case TOGGLE_DIALOG:
       return {
         ...state,
-        toggleUserProfile: !state.toggleUserProfile,
+        toggleDialog: !state.toggleDialog,
+      };
+    case TOGGLE_DIALOG_WINDOWPAY:
+      return {
+        ...state,
+        toggleWindowPay: !state.toggleWindowPay,
       };
     default:
       return state;
