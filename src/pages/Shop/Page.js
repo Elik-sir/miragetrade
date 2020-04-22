@@ -2,42 +2,57 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getItems } from '../../redux/shop/actions';
 import ItemInfo from '../../components/item-info/item-info';
+import ItemInfoDialog from '../../components/item-info/dialog';
 import Item from '../../components/Item/item';
 import Sceletons from './sceleton';
 import Filters from './filters';
 import { useStyles } from './styles';
-const ShopPage = ({ items, isLoading, getItems }) => {
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+
+const ShopPage = ({ items, isLoading, getItems, error }) => {
   useEffect(() => {
     getItems();
   }, [getItems]);
-
   const classes = useStyles();
-
+  const matches = useMediaQuery('(max-width:600px)');
   return (
     <div>
-      <div className={classes.shopPage}>
-        <Filters />
-
-        <div className={classes.Items}>
-          {isLoading || items.error ? (
-            <Sceletons />
-          ) : (
-            items.map((item) => (
-              <Item
-                key={item.id}
-                image={item.image}
-                name={item.name}
-                exterior={item.exterior}
-                color={item.raw.name_color}
-                id={item.id}
-              />
-            ))
-          )}
+      {!error ? (
+        <div className={classes.shopPage}>
+          <Filters />
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-around',
+              width: '100%',
+            }}
+          >
+            <div className={classes.Items}>
+              {isLoading || items.error ? (
+                <Sceletons />
+              ) : (
+                items.map((item) => (
+                  <Item
+                    key={item.id}
+                    image={item.image}
+                    name={item.name}
+                    exterior={item.exterior}
+                    color={item.raw.name_color}
+                    id={item.id}
+                  />
+                ))
+              )}
+            </div>
+            <div style={{ height: '250px' }}>
+              {matches ? <ItemInfoDialog /> : <ItemInfo />}
+            </div>
+          </div>
         </div>
-        <div style={{ height: '250px' }}>
-          <ItemInfo />
-        </div>
-      </div>
+      ) : (
+        <h1 style={{ color: 'white' }}>
+          Упсс... <br /> Инвентарь не доступен
+        </h1>
+      )}
     </div>
   );
 };
@@ -46,6 +61,7 @@ const mapStateToProps = (state) => ({
     ? state.items.items.filter((item) => item.type === state.items.filter)
     : state.items.items,
   isLoading: state.items.isLoadingItems,
+  error: state.items.error,
 });
 const mapDispatchToProps = (dispatch) => ({
   getItems: () => dispatch(getItems()),

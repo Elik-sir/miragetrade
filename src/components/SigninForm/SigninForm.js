@@ -18,7 +18,7 @@ const SigninForm = () => {
       setEmail('');
       setPassword('');
     } catch (error) {
-      console.log(error);
+      alert(error);
     }
   };
   return (

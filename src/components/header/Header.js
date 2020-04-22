@@ -21,11 +21,9 @@ const Header = ({ currentUser, toggleCartHidden, hidden, toggleDialog }) => {
   const handleClick = (event) => {
     if (currentUser) setAnchorEl(event.currentTarget);
   };
-
   const handleClose = () => {
     setAnchorEl(null);
   };
-
   return (
     <div className={classes.header} style={{}}>
       <div

@@ -36,4 +36,12 @@ export const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     fontSize: '24px',
   },
+  dialog: {
+    background:
+      'url(https://wallpaperscave.ru/images/thumbs/category/355x200/18/06-28/games-counter-strike-global-offensive-62143.jpg) no-repeat',
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    height: '100%',
+    color: '#ffffff',
+  },
 }));

@@ -1,4 +1,10 @@
-import { GET_ITEMS, CURRENT_ITEM, GET_PRICE, FILTER_ITEMS } from './constants';
+import {
+  GET_ITEMS,
+  CURRENT_ITEM,
+  GET_PRICE,
+  FILTER_ITEMS,
+  TOGGLE_DIALOG,
+} from './constants';
 import { ASYNC_START, ASYNC_END } from '../constants';
 const initial_state = {
   items: [],
@@ -7,6 +13,8 @@ const initial_state = {
   isLoadingItems: true,
   isLoadingPrice: true,
   filter: '',
+  toggle: false,
+  errorPrice: false,
 };
 
 const shopReducer = (state = initial_state, action) => {
@@ -34,7 +42,11 @@ const shopReducer = (state = initial_state, action) => {
       return { ...state };
     case GET_PRICE:
       if (action.error) {
-        return { ...state, error: action.error, errorMessage: action.payload };
+        return {
+          ...state,
+          errorPrice: action.error,
+          errorMessage: action.payload,
+        };
       }
       return {
         ...state,
@@ -49,6 +61,11 @@ const shopReducer = (state = initial_state, action) => {
       return {
         ...state,
         filter: action.payload,
+      };
+    case TOGGLE_DIALOG:
+      return {
+        ...state,
+        toggle: !state.toggle,
       };
     default:
       return state;

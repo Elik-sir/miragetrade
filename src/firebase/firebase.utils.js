@@ -90,7 +90,6 @@ export const addReview = async (collectionKey, review) => {
   await lastid.get().then((documentSnapshots) => {
     review.id = documentSnapshots.docs.length + 1;
   });
-  console.log(review.id);
   const batch = firestore.batch();
   const newDocRef = collectionRef.doc();
   batch.set(newDocRef, review);

@@ -14,11 +14,11 @@ const HomePage = () => {
       <Fade collapse bottom duration={2000}>
         <Features />
         <div style={{ height: '60px', textAlign: 'center', color: 'white' }}>
-          <span>© MIRAGETRADE 2020</span>
+          <span>© MIRAGETRADE 2020 </span>
+          <p>Количество поситителей - 20</p>
         </div>
       </Fade>
     </div>
   );
 };
-
 export default HomePage;

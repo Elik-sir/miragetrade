@@ -1,7 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getPrice, changeCurrentItem } from '../../redux/shop/actions';
+import {
+  getPrice,
+  changeCurrentItem,
+  toggleDialog,
+} from '../../redux/shop/actions';
 import { useStyles } from './styles';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+
 const Item = ({
   image,
   name,
@@ -10,16 +16,21 @@ const Item = ({
   getPrice,
   id,
   changeCurrentItem,
+  toggleDialog,
 }) => {
   const onSubmitItem = (name, image, exterior, color, id) => {
     getPrice(name);
     changeCurrentItem({ image, name, exterior, color, id });
   };
+  const matches = useMediaQuery('(max-width:600px)');
   const classes = useStyles();
   return (
     <div
       className={classes.collectionItem}
-      onClick={() => onSubmitItem(name, image, exterior, color, id)}
+      onClick={() => {
+        onSubmitItem(name, image, exterior, color, id);
+        if (matches) toggleDialog();
+      }}
       style={{ border: `1px solid #${color}` }}
     >
       <div
@@ -51,5 +62,6 @@ const Item = ({
 const mapDispatchToProps = (dispatch) => ({
   getPrice: (item) => dispatch(getPrice(item)),
   changeCurrentItem: (item) => dispatch(changeCurrentItem(item)),
+  toggleDialog: () => dispatch(toggleDialog()),
 });
 export default connect(null, mapDispatchToProps)(Item);

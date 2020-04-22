@@ -1,4 +1,4 @@
-import { GET_ITEMS, CURRENT_ITEM, GET_PRICE, FILTER_ITEMS } from './constants';
+import { GET_ITEMS, CURRENT_ITEM, GET_PRICE, FILTER_ITEMS,TOGGLE_DIALOG } from './constants';
 import agent from '../agent';
 export const getItems = () => ({
   type: GET_ITEMS,
@@ -15,4 +15,7 @@ export const getPrice = (item) => ({
 export const filterItems = (filter) => ({
   type: FILTER_ITEMS,
   payload: filter,
+});
+export const toggleDialog = () => ({
+  type: TOGGLE_DIALOG,
 });

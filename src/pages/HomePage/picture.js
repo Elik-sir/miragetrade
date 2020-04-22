@@ -33,5 +33,4 @@ const Picture = () => {
     </div>
   );
 };
-
 export default Picture;

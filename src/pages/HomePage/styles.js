@@ -5,7 +5,6 @@ export const useStyles = makeStyles((theme) => ({
     marginBottom: '100px',
     marginTop: '100px',
   },
-
   Picture: {
     background:
       'url(https://steamcdn-a.akamaihd.net/steamcommunity/public/images/clans/3381077/d81306d2d9581df32202e9dcc2c8451797af091a.png) no-repeat',

@@ -13,9 +13,10 @@ const ItemInfo = ({
   isLoadingItems,
   sale_price,
   items,
+  error,
 }) => {
   const matches = useMediaQuery('(min-width:600px)');
-  const props = {matches}
+  const props = { matches };
   const classes = useStyles(props);
   return (
     <div
@@ -55,6 +56,8 @@ const ItemInfo = ({
                       classes={{ root: classes.root }}
                     />
                   </div>
+                ) : error ? (
+                  <span>Ошибка</span>
                 ) : (
                   ` ${sale_price}$`
                 )}
@@ -90,6 +93,7 @@ const mapStateToProps = (state) => ({
   items: state.items.items,
   isLoadingPrice: state.items.isLoadingPrice,
   isLoadingItems: state.items.isLoadingItems,
+  error: state.items.errorPrice,
 });
 const mapDispatchToProps = (dispatch) => ({
   addItem: (item) => dispatch(addItem(item)),

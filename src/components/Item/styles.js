@@ -6,6 +6,7 @@ export const useStyles = makeStyles((theme) => ({
     margin: '8px',
     backgroundColor: '#3b3a3ae9',
     borderRadius: '2px',
+    cursor: 'pointer',
   },
   image: {
     height: '90px',
