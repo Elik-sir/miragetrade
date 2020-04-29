@@ -5,7 +5,7 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import { toggleDialog } from '../../redux/shop/actions';
+import { toggleDialog, showSnack } from '../../redux/shop/actions';
 import { addItem } from '../../redux/cart/actions';
 import { useStyles } from './styles';
 import { Skeleton } from '@material-ui/lab';
@@ -23,20 +23,22 @@ const ItemInfoDialog = ({
   item,
   open,
   error,
+  showSnack,
+  openAlert,
 }) => {
   const classes = useStyles();
-  const [openAlert, setOpenAlert] = React.useState(false);
+  // const [openAlert, setOpenAlert] = React.useState(false);
 
-  const handleClick = () => {
-    setOpenAlert(true);
-  };
+  // const handleClick = () => {
+  //   setOpenAlert(true);
+  // };
 
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
       return;
     }
 
-    setOpenAlert(false);
+    showSnack(false);
   };
   return (
     <Dialog
@@ -98,7 +100,7 @@ const ItemInfoDialog = ({
           <Button
             onClick={() => {
               addItem({ ...item, sale_price });
-              handleClick();
+              showSnack(true);
             }}
             color='primary'
             disabled={isLoadingPrice ? true : false}
@@ -130,11 +132,13 @@ const mapStateToProps = (state) => ({
   isLoadingPrice: state.items.isLoadingPrice,
   isLoadingItems: state.items.isLoadingItems,
   error: state.items.errorPrice,
+  OpenAlert: state.items.isopenSnack,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   toggle: () => dispatch(toggleDialog()),
   addItem: (item) => dispatch(addItem(item)),
+  showSnack: (isOpen) => dispatch(showSnack(isOpen)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ItemInfoDialog);

@@ -7,9 +7,8 @@ export const useStyles = makeStyles((theme) => ({
     borderBottom: '1px solid white',
   },
   btn: {
-    minWidth: '150px',
     borderRadius: '18px',
-    height: '60px',
     marginBottom: '0',
+    fontSize: '16px',
   },
 }));

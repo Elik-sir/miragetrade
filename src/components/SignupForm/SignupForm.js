@@ -7,9 +7,10 @@ const SignupForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmpassword, setConfirmpassword] = useState('');
+  const [name, setName] = useState('');
   const changeEmail = (e) => setEmail(e.target.value);
   const changePassword = (e) => setPassword(e.target.value);
-
+  const changeName = (e) => setName(e.target.value);
   const changeСonfirmpassword = (e) => setConfirmpassword(e.target.value);
   const classes = useStyles();
   const handleSubmit = async (event) => {
@@ -25,7 +26,7 @@ const SignupForm = () => {
       );
 
       await createUserProfileDocument(user, {
-        displayName: email,
+        displayName: name,
         photoURL: '',
       });
     } catch (error) {
@@ -34,6 +35,15 @@ const SignupForm = () => {
   };
   return (
     <>
+      <TextField
+        id='name-input'
+        label='Name'
+        fullWidth
+        className={classes.textField}
+        value={name}
+        onChange={changeName}
+        autoComplete='email'
+      />
       <TextField
         id='login-input'
         label='Email'

@@ -5,14 +5,13 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import Slider from '@material-ui/core/Slider';
+
 import { useStyles } from './styles';
 const Filters = ({ filter }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [open, setOpen] = React.useState(false);
   const [type, setType] = React.useState('');
   const [quality, setQuality] = React.useState('');
-  const [cost, setCost] = React.useState('');
 
   const changeType = (event) => {
     setType(event.target.value);
@@ -20,26 +19,16 @@ const Filters = ({ filter }) => {
   const changeQuality = (event) => {
     setQuality(event.target.value);
   };
-  const changeCost = (event) => {
-    setCost(event.target.value);
-  };
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
     setOpen(!open);
   };
-  const [value, setValue] = React.useState([150, 400]);
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
 
   const handleClose = () => {
     setOpen(false);
   };
-  const valuetext = (value) => {
-    return `${value}$`;
-  };
+
   const classes = useStyles();
   return (
     <div style={{ width: '95%' }}>
@@ -115,26 +104,6 @@ const Filters = ({ filter }) => {
               <MenuItem value={'Heavy'}>После полевых</MenuItem>
             </TextField>
 
-            <TextField
-              id='standard-select-currency'
-              select
-              label='Сортировать цену'
-              value={cost}
-              onChange={changeCost}
-              className={classes.textField}
-            >
-              <MenuItem value={'SMG'}>По возрастанию</MenuItem>
-              <MenuItem value={'Pistols'}>По убыванию</MenuItem>
-            </TextField>
-            <p style={{ marginBottom: '0', marginTop: '-10px' }}>Цена $</p>
-            <Slider
-              value={value}
-              onChange={handleChange}
-              valueLabelDisplay='auto'
-              aria-labelledby='range-slider'
-              getAriaValueText={valuetext}
-              max={1000}
-            />
             <div style={{ display: 'inline-block' }}>
               <Button
                 variant='contained'

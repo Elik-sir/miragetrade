@@ -25,7 +25,7 @@ const Header = ({ currentUser, toggleCartHidden, hidden, toggleDialog }) => {
     setAnchorEl(null);
   };
   return (
-    <div className={classes.header} style={{}}>
+    <div className={classes.header}>
       <div
         className='logo'
         onClick={() => {

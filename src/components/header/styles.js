@@ -15,6 +15,9 @@ export const useStyles = makeStyles((theme) => ({
     textDecoration: 'none',
     fontSize: props.matches ? '16px' : '11px',
     fontWeight: 'normal',
+    '&:hover': {
+      borderBottom: '2px solid white',
+    },
   }),
   logout: {
     cursor: 'pointer',

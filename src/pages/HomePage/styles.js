@@ -41,5 +41,8 @@ export const useStyles = makeStyles((theme) => ({
     textDecoration: 'none',
     fontSize: '32px',
     fontWeight: 'normal',
+    '&:hover': {
+      color: '#ff7961',
+    },
   },
 }));

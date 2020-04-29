@@ -2,10 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { AddShoppingCart } from '@material-ui/icons';
 import { addItem } from '../../redux/cart/actions';
+import { showSnack } from '../../redux/shop/actions';
 import Button from '@material-ui/core/Button';
 import { Skeleton } from '@material-ui/lab';
 import { useStyles } from './styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
+
 const ItemInfo = ({
   item,
   addItem,
@@ -14,6 +16,7 @@ const ItemInfo = ({
   sale_price,
   items,
   error,
+  showSnack,
 }) => {
   const matches = useMediaQuery('(min-width:600px)');
   const props = { matches };
@@ -69,7 +72,10 @@ const ItemInfo = ({
             <Button
               variant='contained'
               color='secondary'
-              onClick={() => addItem({ ...item, sale_price })}
+              onClick={() => {
+                addItem({ ...item, sale_price });
+                showSnack(true);
+              }}
               disabled={isLoadingPrice}
             >
               <div>
@@ -97,5 +103,6 @@ const mapStateToProps = (state) => ({
 });
 const mapDispatchToProps = (dispatch) => ({
   addItem: (item) => dispatch(addItem(item)),
+  showSnack: (isOpen) => dispatch(showSnack(isOpen)),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(ItemInfo);

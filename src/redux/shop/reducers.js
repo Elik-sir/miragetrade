@@ -4,6 +4,7 @@ import {
   GET_PRICE,
   FILTER_ITEMS,
   TOGGLE_DIALOG,
+  SHOW_SNACK,
 } from './constants';
 import { ASYNC_START, ASYNC_END } from '../constants';
 const initial_state = {
@@ -15,6 +16,7 @@ const initial_state = {
   filter: '',
   toggle: false,
   errorPrice: false,
+  isopenSnack: false,
 };
 
 const shopReducer = (state = initial_state, action) => {
@@ -66,6 +68,11 @@ const shopReducer = (state = initial_state, action) => {
       return {
         ...state,
         toggle: !state.toggle,
+      };
+    case SHOW_SNACK:
+      return {
+        ...state,
+        isopenSnack: action.payload,
       };
     default:
       return state;
