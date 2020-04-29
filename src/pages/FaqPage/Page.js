@@ -13,7 +13,7 @@ const Quastions = [
   },
   {
     id: 2,
-    quastion: 'Почему не загружаются предметы в магазине?',
+    quastion: 'Почему нет предметов в магазине?',
     answer: 'Тут должен быть ответ,но его пока нет',
   },
   {
@@ -30,6 +30,7 @@ const Quastions = [
 
 const FaqPage = () => {
   const classes = useStyles();
+
   return (
     <div className={classes.FaqPage}>
       <div className={classes.title}>
@@ -48,8 +49,8 @@ const FaqPage = () => {
         >
           <TransitionGroup {...{ appear: true, enter: true, exit: true }}>
             <Fade collapse bottom duration={2500}>
-              <h1>Список часто задаваемых вопросов</h1>
               <Grid item xs={12} sm={10} md={8} lg={6}>
+                <h1>Список часто задаваемых вопросов</h1>
                 {Quastions.map((quastion) => (
                   <div className={classes.fade}>
                     <FaqItem

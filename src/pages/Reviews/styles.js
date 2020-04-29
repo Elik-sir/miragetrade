@@ -18,5 +18,12 @@ export const useStyles = makeStyles((theme) => ({
   fade: {
     marginBottom: theme.spacing(2),
   },
+  pagination: { width: '100%' },
   ul: { '& > li > button': { color: 'white' } },
+  wrapperreviewForm: {
+    width: '100%',
+    marginRight: 'auto',
+    marginLeft: 'auto',
+    postition: 'relative',
+  },
 }));

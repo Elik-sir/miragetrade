@@ -4,7 +4,7 @@ export const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    width: '550px',
+    width: '100%',
   },
   root: {
     backgroundColor: '#414040',

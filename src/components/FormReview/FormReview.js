@@ -14,15 +14,8 @@ const Formreview = ({ user }) => {
   const classes = useStyles();
   const handleChange = (e) => setComment(e.target.value);
   return user ? (
-    <div
-      style={{
-        width: '550px',
-        border: '1px solid white',
-        borderRadius: '6px',
-        padding: '16px',
-      }}
-    >
-      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+    <div className={classes.wrapperForm}>
+      <div className={classes.wrapperAvatar}>
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <Avatar src={user.photoURL} />
           <div style={{ marginLeft: '16px' }}>

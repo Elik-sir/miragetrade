@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button';
 
 import { useStyles } from './styles';
 const Filters = ({ filter }) => {
+  //use hook
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [open, setOpen] = React.useState(false);
   const [type, setType] = React.useState('');

@@ -5,6 +5,12 @@ export const useStyles = makeStyles({
     display: 'flex',
     alignItems: 'center',
   },
+  wrapperForm: {
+    width: '100%',
+    border: '1px solid white',
+    borderRadius: '6px',
+    padding: '16px',
+  },
   textField: {
     width: '100%',
     backgroundColor: '#414040',
@@ -17,4 +23,8 @@ export const useStyles = makeStyles({
     borderColor: '#80deea',
   },
   iconEmpty: { color: '#414040' },
+  wrapperAvatar: {
+    display: 'flex',
+    justifyContent: 'space-between',
+  },
 });

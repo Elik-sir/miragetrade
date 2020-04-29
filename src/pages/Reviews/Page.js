@@ -42,14 +42,18 @@ const ReviewsPage = ({
           style={{
             margin: 0,
             width: '100%',
-            padding: '20px 0',
+            padding: '16px 0',
           }}
         >
-          <Grid item xs={12} sm={10} md={8} lg={6}>
+          <Grid item xs={12} sm={8} md={6} lg={4}>
             <Reviews />
           </Grid>
           <Grid
             item
+            xs={12}
+            sm={8}
+            md={6}
+            lg={4}
             style={{
               margin: '32px 0',
               width: 'auto',
@@ -62,6 +66,7 @@ const ReviewsPage = ({
               page={page}
               color='secondary'
               classes={{
+                root: classes.pagination,
                 ul: classes.ul,
               }}
               onChange={handleChange}
@@ -69,24 +74,15 @@ const ReviewsPage = ({
           </Grid>
           <Grid
             item
-            style={{
-              width: '550px',
-              marginRight: 'auto',
-              marginLeft: 'auto',
-              postition: 'relative',
-            }}
+            xs={12}
+            sm={8}
+            md={6}
+            lg={4}
+            className={classes.wrapperreviewForm}
           >
             <Formreview />
           </Grid>
         </Grid>
-        <div
-          style={{
-            width: 'auto',
-            marginRight: 'auto',
-            marginLeft: 'auto',
-            postition: 'relative',
-          }}
-        ></div>
       </div>
     </div>
   );
@@ -96,6 +92,7 @@ const mapStateToProps = (state) => ({
   countPages: state.common.countPages,
   page: state.common.currentPage,
 });
+
 const mapDispatchToProps = (dispatch) => ({
   getReviews: (reviews) => dispatch(getReviews(reviews)),
   getCountReviews: (count) => dispatch(getCountReviews(count)),

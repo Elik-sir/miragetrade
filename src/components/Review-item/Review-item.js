@@ -1,28 +1,12 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import Rating from '@material-ui/lab/Rating';
 import Avatar from '@material-ui/core/Avatar';
-const useStyles = makeStyles({
-  iconEmpty: { color: '#666363' },
-});
+import { useStyles } from './styles';
 const ReviewItem = ({ photoURL, comment, displayName, value, createdAt }) => {
   const classes = useStyles();
   return (
-    <div
-      style={{
-        width: '550px',
-        border: '2px solid #666363',
-        borderRadius: '6px',
-        padding: '16px',
-      }}
-    >
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-        }}
-      >
+    <div className={classes.wrapperItem}>
+      <div className={classes.wrapperHeaderItem}>
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <Avatar src={photoURL} />
           <div style={{ marginLeft: '10px' }}>
@@ -38,25 +22,10 @@ const ReviewItem = ({ photoURL, comment, displayName, value, createdAt }) => {
           />
         </div>
       </div>
-      <div
-        style={{
-          textAlign: 'left',
-          marginTop: '8px',
-          width: '70%',
-          marginBottom: '0',
-          wordWrap: 'break-word',
-        }}
-      >
+      <div className={classes.wrapperComment}>
         <p>{comment}</p>
       </div>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'flex-end',
-          marginRight: '5px',
-          color: '#666363',
-        }}
-      >
+      <div className={classes.wrapperDate}>
         <span>{createdAt}</span>
       </div>
     </div>
