@@ -4,6 +4,8 @@ import {
   CHANGE_CURRENT_PAGE,
   TOGGLE_DIALOG,
   TOGGLE_DIALOG_WINDOWPAY,
+  TOGGLE_DIALOG_DELETE,
+  SET_ALERT,
 } from './constant';
 import { ASYNC_START, ASYNC_END } from '../constants';
 
@@ -14,6 +16,8 @@ const defaultState = {
   currentPage: 1,
   toggleDialog: false,
   toggleWindowPay: false,
+  toggleDialogDelete: false,
+  alert: { open: false, message: '', severity: '' },
 };
 
 const commonReducer = (state = defaultState, action) => {
@@ -55,6 +59,16 @@ const commonReducer = (state = defaultState, action) => {
       return {
         ...state,
         toggleWindowPay: !state.toggleWindowPay,
+      };
+    case TOGGLE_DIALOG_DELETE:
+      return {
+        ...state,
+        toggleDialogDelete: !state.toggleDialogDelete,
+      };
+    case SET_ALERT:
+      return {
+        ...state,
+        alert: action.payload,
       };
     default:
       return state;

@@ -33,7 +33,7 @@ TabPanel.propTypes = {
   value: PropTypes.any.isRequired,
 };
 
-//Component which appears in Signin page and contains signin and signup Form
+//Форма авторизации/ регистрации
 const AuthorizationForm = () => {
   const [value, setValue] = useState(0);
   const classes = useStyles();

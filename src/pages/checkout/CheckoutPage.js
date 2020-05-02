@@ -6,12 +6,24 @@ import {
   selectCartItems,
   selectCartTotal,
 } from '../../redux/cart/cart.selectors';
-import { toggleDialogWindowPay } from '../../redux/common/actions';
+import { selectCurrentUser } from '../../redux/user/user.selectors';
+import {
+  toggleDialogWindowPay,
+  toggleDialogDelete,
+} from '../../redux/common/actions';
 import CheckoutItem from '../../components/checkout-item/checkout-item';
 import Button from '@material-ui/core/Button';
 import WindowPay from './windowPay';
+import ConfirmDelete from './confirmDelete';
 import { useStyles } from './styles';
-const CheckoutPage = ({ cartItems, total, toggleDialog }) => {
+//Страница Корзина
+const CheckoutPage = ({
+  cartItems,
+  total,
+  toggleDialog,
+  toggleDialogDelete,
+  user,
+}) => {
   const classes = useStyles();
   return (
     <div className={classes.checkoutPage}>
@@ -41,12 +53,18 @@ const CheckoutPage = ({ cartItems, total, toggleDialog }) => {
             <CheckoutItem key={id} cartItem={cartItem} />
           ))}
           <div className={classes.total}>
+            <div onClick={toggleDialogDelete}>
+              <span style={{ fontSize: '12px', cursor: 'pointer' }}>
+                Очистить корзину
+              </span>
+            </div>
+
             <div>
               <span>ИТОГО: ${total.toFixed(2)}</span>
             </div>
           </div>
           <div>
-            {cartItems.length ? (
+            {user ? (
               <Button
                 variant='contained'
                 color='primary'
@@ -55,7 +73,23 @@ const CheckoutPage = ({ cartItems, total, toggleDialog }) => {
               >
                 КУПИТЬ
               </Button>
-            ) : null}
+            ) : (
+              <div>
+                <h1>Для совершения покупки нужно авторизоваться</h1>
+                <Button variant='contained' color='primary'>
+                  <Link
+                    to='/signin'
+                    style={{
+                      textDecoration: 'none',
+                      color: 'white',
+                      fontSize: '24px',
+                    }}
+                  >
+                    Авторизоваться
+                  </Link>
+                </Button>
+              </div>
+            )}
           </div>
         </>
       ) : (
@@ -76,14 +110,17 @@ const CheckoutPage = ({ cartItems, total, toggleDialog }) => {
         </>
       )}
       <WindowPay />
+      <ConfirmDelete />
     </div>
   );
 };
 const mapStateToProps = createStructuredSelector({
   cartItems: selectCartItems,
   total: selectCartTotal,
+  user: selectCurrentUser,
 });
 const mapDispatchToProps = (dispatch) => ({
   toggleDialog: () => dispatch(toggleDialogWindowPay()),
+  toggleDialogDelete: () => dispatch(toggleDialogDelete()),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(CheckoutPage);

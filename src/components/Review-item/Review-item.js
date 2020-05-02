@@ -2,6 +2,7 @@ import React from 'react';
 import Rating from '@material-ui/lab/Rating';
 import Avatar from '@material-ui/core/Avatar';
 import { useStyles } from './styles';
+//Отзыв
 const ReviewItem = ({ photoURL, comment, displayName, value, createdAt }) => {
   const classes = useStyles();
   return (

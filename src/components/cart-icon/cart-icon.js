@@ -4,7 +4,7 @@ import { createStructuredSelector } from 'reselect';
 import { selectCartItemsCount } from '../../redux/cart/cart.selectors';
 import { ReactComponent as ShoppingIcon } from '../../assets/cart.svg';
 import { useStyles } from './styles';
-
+// Иконка корзины
 const CartIcon = ({ quantity }) => {
   const classes = useStyles();
   return (

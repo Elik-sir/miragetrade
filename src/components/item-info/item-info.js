@@ -2,12 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { AddShoppingCart } from '@material-ui/icons';
 import { addItem } from '../../redux/cart/actions';
-import { showSnack } from '../../redux/shop/actions';
+import { setAlert } from '../../redux/common/actions';
 import Button from '@material-ui/core/Button';
 import { Skeleton } from '@material-ui/lab';
 import { useStyles } from './styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
+//Дополнительная информация о предмете с кнопкой добавить в корзину
 const ItemInfo = ({
   item,
   addItem,
@@ -16,7 +17,7 @@ const ItemInfo = ({
   sale_price,
   items,
   error,
-  showSnack,
+  setAlert,
 }) => {
   const matches = useMediaQuery('(min-width:600px)');
   const props = { matches };
@@ -74,7 +75,11 @@ const ItemInfo = ({
               color='secondary'
               onClick={() => {
                 addItem({ ...item, sale_price });
-                showSnack(true);
+                setAlert({
+                  open: true,
+                  message: 'Товар добавлен в корзину',
+                  severity: 'success',
+                });
               }}
               disabled={isLoadingPrice}
             >
@@ -103,6 +108,6 @@ const mapStateToProps = (state) => ({
 });
 const mapDispatchToProps = (dispatch) => ({
   addItem: (item) => dispatch(addItem(item)),
-  showSnack: (isOpen) => dispatch(showSnack(isOpen)),
+  setAlert: (alert) => dispatch(setAlert(alert)),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(ItemInfo);

@@ -101,7 +101,7 @@ const Filters = ({ filter }) => {
               className={classes.textField}
             >
               <MenuItem value={'SMG'}>Только с завода</MenuItem>
-              <MenuItem value={'Pistol'}>Не много поношенное</MenuItem>
+              <MenuItem value={'Pistol'}>Немного поношенное</MenuItem>
               <MenuItem value={'Heavy'}>После полевых</MenuItem>
             </TextField>
 

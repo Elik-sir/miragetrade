@@ -5,6 +5,7 @@ export const useStyles = makeStyles((theme) => ({
     border: '2px solid #666363',
     borderRadius: '6px',
     padding: '16px',
+    minWidth: '250px',
   },
   iconEmpty: { color: '#666363' },
   wrapperHeaderItem: {

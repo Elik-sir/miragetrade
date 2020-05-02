@@ -81,7 +81,11 @@ export const changeAvatarandDisplayName = ({ id, displayName, photoURL }) => {
 export const getCountpage = async () => {
   const collectionRef = firestore.collection('reviews');
   const collectionSnapShot = await collectionRef.get();
-
+  return collectionSnapShot.size;
+};
+export const getCountUsers = async () => {
+  const collectionRef = firestore.collection('users');
+  const collectionSnapShot = await collectionRef.get();
   return collectionSnapShot.size;
 };
 export const addReview = async (collectionKey, review) => {
@@ -94,6 +98,29 @@ export const addReview = async (collectionKey, review) => {
   const newDocRef = collectionRef.doc();
   batch.set(newDocRef, review);
   return await batch.commit();
+};
+export const addOrder = async (collectionKey, order) => {
+  const collectionRef = firestore.collection(collectionKey);
+  const batch = firestore.batch();
+  const newDocRef = collectionRef.doc();
+  batch.set(newDocRef, order);
+  return await batch.commit();
+};
+export const getOrders = async (userId) => {
+  const orders = firestore
+    .collection('orders')
+    .where('userid', '==', userId)
+    .orderBy('createdAt', 'desc');
+  return orders.get().then((documentSnapshots) => {
+    return documentSnapshots.docs.map((doc) => {
+      const { createdAt, items, account } = doc.data();
+      return {
+        createdAt,
+        items,
+        account,
+      };
+    });
+  });
 };
 
 export const auth = firebase.auth();

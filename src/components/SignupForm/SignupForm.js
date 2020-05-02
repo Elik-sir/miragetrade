@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { setAlert } from '../../redux/common/actions';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
 import { useStyles } from './styles';
-const SignupForm = () => {
+//Форма регистрации
+const SignupForm = ({ setAlert }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmpassword, setConfirmpassword] = useState('');
@@ -12,11 +15,25 @@ const SignupForm = () => {
   const changePassword = (e) => setPassword(e.target.value);
   const changeName = (e) => setName(e.target.value);
   const changeСonfirmpassword = (e) => setConfirmpassword(e.target.value);
+
   const classes = useStyles();
   const handleSubmit = async (event) => {
     event.preventDefault();
+
     if (password !== confirmpassword) {
-      alert('Не совпадают пароли');
+      setAlert({
+        open: true,
+        message: 'Пароли не совпадают',
+        severity: 'error',
+      });
+      return;
+    }
+    if (name.length === 0) {
+      setAlert({
+        open: true,
+        message: 'Заполните поле Name',
+        severity: 'error',
+      });
       return;
     }
     try {
@@ -30,7 +47,27 @@ const SignupForm = () => {
         photoURL: '',
       });
     } catch (error) {
-      alert(error);
+      if (error.message === 'The email address is badly formatted.')
+        setAlert({
+          open: true,
+          message: 'Email не верного формата!',
+          severity: 'error',
+        });
+      else if (
+        error.message === 'The password must be 6 characters long or more.' ||
+        error.message === 'Password should be at least 6 characters'
+      )
+        setAlert({
+          open: true,
+          message: 'Пароль должен содержать 6 или более символов',
+          severity: 'error',
+        });
+      else
+        setAlert({
+          open: true,
+          message: 'Пользователь с данным email уже зарегистрирован ',
+          severity: 'error',
+        });
     }
   };
   return (
@@ -85,4 +122,7 @@ const SignupForm = () => {
   );
 };
 
-export default SignupForm;
+const mapDispatchToProps = (dispatch) => ({
+  setAlert: (alert) => dispatch(setAlert(alert)),
+});
+export default connect(null, mapDispatchToProps)(SignupForm);

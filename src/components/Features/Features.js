@@ -5,6 +5,7 @@ import { ReactComponent as Weapon1 } from './Path 9.svg';
 import { ReactComponent as Weapon2 } from './Path 8.svg';
 import { ReactComponent as Weapon3 } from './Path 10.svg';
 import './menu-item.scss';
+//Достойнства на странице Главная
 const Features = ({ history }) => {
   return (
     <div style={{ width: '100%', padding: '0' }}>

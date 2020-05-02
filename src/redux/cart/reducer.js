@@ -3,8 +3,9 @@ import {
   ADD_ITEM,
   CLEAR_ITEM_FROM_CART,
   REMOVE_ITEM,
-} from "./constants";
-import { addItemToCart, removeItemFromCart } from "./cart.utils";
+  CLEAR_CART,
+} from './constants';
+import { addItemToCart, removeItemFromCart } from './cart.utils';
 const INITIAL_STATE = {
   hidden: true,
   cartItems: [],
@@ -30,8 +31,13 @@ const cartReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         cartItems: state.cartItems.filter(
-          cartItem => cartItem.name !== action.payload.name,
+          (cartItem) => cartItem.name !== action.payload.name,
         ),
+      };
+    case CLEAR_CART:
+      return {
+        ...state,
+        cartItems: [],
       };
     default:
       return state;

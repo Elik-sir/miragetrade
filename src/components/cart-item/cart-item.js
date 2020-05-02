@@ -1,5 +1,6 @@
 import React from 'react';
 import { useStyles } from './styles';
+//Предмет в выпадающей корзине
 const CartItem = ({ image, sale_price, quantity }) => {
   const classes = useStyles();
   return (

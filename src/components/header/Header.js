@@ -12,10 +12,11 @@ import { auth } from '../../firebase/firebase.utils';
 import { useStyles } from './styles';
 import UserProfile from '../UserProfile/UserProfile';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-
+//Навигационная панель
 const Header = ({ currentUser, toggleCartHidden, hidden, toggleDialog }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const matches = useMediaQuery('(min-width:600px)');
+  const matches = useMediaQuery('(min-width:900px)');
+  const matches2 = useMediaQuery('(min-width:620px)');
   const props = { matches: matches };
   const classes = useStyles(props);
   const handleClick = (event) => {
@@ -34,25 +35,10 @@ const Header = ({ currentUser, toggleCartHidden, hidden, toggleDialog }) => {
         style={{ padding: '24px' }}
       >
         <Link to='/' className={classes.link}>
-          <Logo width={matches ? '350px' : '150px'} />
+          <Logo width={matches ? '350px' : matches2 ? '250px' : '125px'} />
         </Link>
       </div>
-      <div className='signin'>
-        <div
-          style={{
-            width: 'auto',
-          }}
-        >
-          <Button
-            onClick={() => {
-              if (!hidden) toggleCartHidden();
-            }}
-          >
-            <Link to='/shop' className={classes.link}>
-              МАГАЗИН
-            </Link>
-          </Button>
-        </div>
+      <div className='signin' style={{ width: 'auto' }}>
         <div className={classes.logout}>
           <Button
             aria-controls='customized-menu'
@@ -64,7 +50,19 @@ const Header = ({ currentUser, toggleCartHidden, hidden, toggleDialog }) => {
           >
             {currentUser ? (
               <>
-                <Avatar alt='avatar' src={currentUser.photoURL} />
+                <span
+                  style={{
+                    color: 'white',
+                    fontSize: matches ? '14px' : matches2 ? '12px' : '6px',
+                  }}
+                >
+                  {currentUser.displayName}
+                </span>
+                <Avatar
+                  alt='avatar'
+                  src={currentUser.photoURL}
+                  style={{ marginLeft: '8px' }}
+                />
               </>
             ) : (
               <Link to='/signin' className={classes.link}>
@@ -100,6 +98,18 @@ const Header = ({ currentUser, toggleCartHidden, hidden, toggleDialog }) => {
             </MenuItem>
             <MenuItem
               onClick={(e) => {
+                handleClose(e);
+              }}
+            >
+              <Link
+                to='/orders'
+                style={{ textDecoration: 'none', color: 'black' }}
+              >
+                Заказы
+              </Link>
+            </MenuItem>
+            <MenuItem
+              onClick={(e) => {
                 auth.signOut();
                 handleClose(e);
               }}
@@ -107,6 +117,21 @@ const Header = ({ currentUser, toggleCartHidden, hidden, toggleDialog }) => {
               Выйти
             </MenuItem>
           </Menu>
+        </div>
+        <div
+          style={{
+            width: 'auto',
+          }}
+        >
+          <Button
+            onClick={() => {
+              if (!hidden) toggleCartHidden();
+            }}
+          >
+            <Link to='/shop' className={classes.link}>
+              МАГАЗИН
+            </Link>
+          </Button>
         </div>
         <div onClick={() => toggleCartHidden()}>
           {<CartIcon color='white' />}

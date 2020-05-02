@@ -45,4 +45,10 @@ export const useStyles = makeStyles((theme) => ({
       color: '#ff7961',
     },
   },
+  wrapperFooter: {
+    height: '60px',
+    textAlign: 'center',
+    color: 'white',
+    marginTop: '16px',
+  },
 }));

@@ -12,7 +12,7 @@ import {
 } from '@material-ui/icons';
 import { useStyles } from './styles';
 
-//component which appears in Checkoutpage
+//Предмет на странице Корзина
 const CheckoutItem = ({ cartItem, clearItem, addItem, removeItem }) => {
   const { name, image, sale_price, quantity } = cartItem;
   const classes = useStyles();

@@ -12,4 +12,11 @@ export const useStyles = makeStyles((theme) => ({
   fade: {
     marginBottom: theme.spacing(2),
   },
+  wrapperGrid: {
+    margin: 0,
+    width: '100%',
+    padding: '20px',
+    paddingLeft: '0',
+    paddingRight: '0',
+  },
 }));

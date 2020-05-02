@@ -28,10 +28,10 @@ export const useStyles = makeStyles((theme) => ({
   },
   total: {
     marginTop: '30px',
-    marginLeft: 'auto',
     fontSize: '36px',
     display: 'flex',
-    justifyContent: 'flex-end',
+    width: '100%',
+    justifyContent: 'space-between',
     alignItems: 'center',
   },
   btnBay: {

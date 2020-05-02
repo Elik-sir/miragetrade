@@ -11,7 +11,7 @@ import {
   getCountReviews,
   changeCurrentPage,
 } from '../../redux/common/actions';
-
+//Страница Отзывы
 const ReviewsPage = ({
   getReviews,
   getCountReviews,
@@ -45,7 +45,7 @@ const ReviewsPage = ({
             padding: '16px 0',
           }}
         >
-          <Grid item xs={12} sm={8} md={6} lg={4}>
+          <Grid item xs={12} sm={10} md={8} lg={6}>
             <Reviews />
           </Grid>
           <Grid

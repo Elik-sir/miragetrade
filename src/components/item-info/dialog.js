@@ -27,11 +27,6 @@ const ItemInfoDialog = ({
   openAlert,
 }) => {
   const classes = useStyles();
-  // const [openAlert, setOpenAlert] = React.useState(false);
-
-  // const handleClick = () => {
-  //   setOpenAlert(true);
-  // };
 
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {

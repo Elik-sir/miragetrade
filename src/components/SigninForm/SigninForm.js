@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { setAlert } from '../../redux/common/actions';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { auth, signInWithGoogle } from '../../firebase/firebase.utils';
 import { ReactComponent as Google } from '../../assets/google.svg';
 import { useStyles } from './styles';
-const SigninForm = () => {
+//Форма авторизации
+const SigninForm = ({ setAlert }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
   const changeEmail = (e) => setEmail(e.target.value);
   const changePassword = (e) => setPassword(e.target.value);
   const classes = useStyles();
@@ -18,7 +20,11 @@ const SigninForm = () => {
       setEmail('');
       setPassword('');
     } catch (error) {
-      alert(error);
+      setAlert({
+        open: true,
+        message: 'Не верный email или пароль',
+        severity: 'error',
+      });
     }
   };
   return (
@@ -74,5 +80,7 @@ const SigninForm = () => {
     </>
   );
 };
-
-export default SigninForm;
+const mapDispatchToProps = (dispatch) => ({
+  setAlert: (alert) => dispatch(setAlert(alert)),
+});
+export default connect(null, mapDispatchToProps)(SigninForm);

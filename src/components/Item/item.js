@@ -7,7 +7,7 @@ import {
 } from '../../redux/shop/actions';
 import { useStyles } from './styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-
+//Предмет в магазине
 const Item = ({
   image,
   name,

@@ -1,14 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
+import { getData, addReview } from '../../firebase/firebase.utils';
+import { getReviews, changeCurrentPage } from '../../redux/common/actions';
 import Rating from '@material-ui/lab/Rating';
 import Avatar from '@material-ui/core/Avatar';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import { addReview } from '../../firebase/firebase.utils';
 import { useStyles } from './styles';
-
-const Formreview = ({ user }) => {
+//Форма отправки отзыва
+const Formreview = ({ user, changeCurrentPage, getReviews }) => {
   const [value, setValue] = React.useState(2);
   const [comment, setComment] = React.useState('');
   const classes = useStyles();
@@ -52,8 +52,8 @@ const Formreview = ({ user }) => {
           justifyContent: 'flex-end',
           marginTop: '16px',
         }}
-        onClick={() => {
-          addReview('reviews', {
+        onClick={async () => {
+          await addReview('reviews', {
             value,
             comment,
             createdAt: new Date(),
@@ -62,6 +62,8 @@ const Formreview = ({ user }) => {
             id: 0,
           });
           setComment('');
+          await getReviews(getData(1));
+          changeCurrentPage(1);
         }}
       >
         <Button variant='contained' color='secondary'>
@@ -77,5 +79,8 @@ const mapStateToProps = (state) => ({
   user: state.user.currentUser,
   reviews: state.common.reviews,
 });
-
-export default connect(mapStateToProps)(Formreview);
+const mapDispatchToProps = (dispatch) => ({
+  getReviews: (reviews) => dispatch(getReviews(reviews)),
+  changeCurrentPage: (page) => dispatch(changeCurrentPage(page)),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(Formreview);

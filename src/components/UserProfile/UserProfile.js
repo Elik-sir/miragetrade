@@ -10,12 +10,13 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import { toggleDialog } from '../../redux/common/actions';
-
-const UserProfile = ({ currentUser, toggle, open }) => {
+import { toggleDialog, setAlert } from '../../redux/common/actions';
+//Профиль пользователя
+const UserProfile = ({ currentUser, toggle, open, setAlert }) => {
   const classes = useStyles();
   const [photoURL, setPhotoURL] = useState('');
-  const [displayName, setDisplayName] = useState('');
+  const [displayName, setDisplayName] = useState(currentUser.displayName);
+
   return (
     <Dialog
       open={open}
@@ -38,7 +39,7 @@ const UserProfile = ({ currentUser, toggle, open }) => {
               src={photoURL ? photoURL : currentUser.photoURL}
               classes={{ root: classes.avatar }}
             />
-            {displayName ? displayName : currentUser.displayName}
+            {currentUser.displayName}
           </DialogContentText>
 
           <TextField
@@ -49,13 +50,8 @@ const UserProfile = ({ currentUser, toggle, open }) => {
             type='text'
             defaultValue={currentUser.displayName}
             onChange={(e) => {
-              if (displayName.length < 20) setDisplayName(e.target.value);
-              else {
-                alert('NickName не может содержать больше 20 символов');
-                setDisplayName(displayName.slice(0, 19));
-              }
+              setDisplayName(e.target.value);
             }}
-            value={displayName}
             fullWidth
             className={classes.textField}
           />
@@ -82,12 +78,21 @@ const UserProfile = ({ currentUser, toggle, open }) => {
           </Button>
           <Button
             onClick={() => {
-              toggle('UserProfile');
-              changeAvatarandDisplayName({
-                id: currentUser.id,
-                displayName,
-                photoURL,
-              });
+              if (displayName.length < 15) {
+                toggle('UserProfile');
+                changeAvatarandDisplayName({
+                  id: currentUser.id,
+                  displayName,
+                  photoURL,
+                });
+                setDisplayName('');
+              } else {
+                setAlert({
+                  open: true,
+                  message: 'NickName должен быть меньше 15 сиволов',
+                  severity: 'error',
+                });
+              }
             }}
             color='primary'
           >
@@ -106,6 +111,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   toggle: (typeDialog) => dispatch(toggleDialog(typeDialog)),
+  setAlert: (alert) => dispatch(setAlert(alert)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserProfile);
