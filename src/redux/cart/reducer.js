@@ -10,6 +10,8 @@ const INITIAL_STATE = {
   hidden: true,
   cartItems: [],
 };
+
+//На вход приходит объект action. Оператор switch выбирает case по значению action.type и возвращает объект
 const cartReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case TOOGLE_CART_HIDDEN:

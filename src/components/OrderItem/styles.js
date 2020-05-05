@@ -1,5 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 export const useStyles = makeStyles((theme) => ({
+  //Стили для заказов
   expantion: {
     width: '100%',
     backgroundColor: '#414040',

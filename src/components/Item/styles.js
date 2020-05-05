@@ -1,5 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 export const useStyles = makeStyles((theme) => ({
+  //Стили для товаров
   collectionItem: {
     width: '130px',
     height: '130px',

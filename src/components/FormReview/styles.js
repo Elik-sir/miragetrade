@@ -5,12 +5,14 @@ export const useStyles = makeStyles({
     display: 'flex',
     alignItems: 'center',
   },
+  //Стили для обёртки формы
   wrapperForm: {
     width: '100%',
     border: '1px solid white',
     borderRadius: '6px',
     padding: '16px',
   },
+  //стили для текстового поля
   textField: {
     width: '100%',
     backgroundColor: '#414040',
@@ -22,6 +24,7 @@ export const useStyles = makeStyles({
   input: {
     borderColor: '#80deea',
   },
+  //
   iconEmpty: { color: '#414040' },
   wrapperAvatar: {
     display: 'flex',

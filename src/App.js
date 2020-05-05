@@ -22,12 +22,14 @@ import MuiAlert from '@material-ui/lab/Alert';
 const Alert = (props) => {
   return <MuiAlert elevation={6} variant='filled' {...props} />;
 };
+//Создание общей цветой темы сайта
 const theme = createMuiTheme({
   palette: {
     primary: { main: '#d32f2f', light: '#ff6659', dark: '#9a0007' },
     secondary: { main: '#f44336', light: '#ff7961', dark: '#ba000d' },
   },
 });
+//Корневой компонент, который собирает в себе все остальные
 const App = ({ setCurrentUser, currentUser, alert, hideAlert }) => {
   useEffect(() => {
     const unsubscribeFromAuth = () =>

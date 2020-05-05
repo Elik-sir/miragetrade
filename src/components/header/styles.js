@@ -1,5 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 export const useStyles = makeStyles((theme) => ({
+  //стили для Панели навигации
   header: (props) => ({
     display: 'flex',
     justifyContent: 'space-between',
@@ -19,7 +20,16 @@ export const useStyles = makeStyles((theme) => ({
       borderBottom: '2px solid white',
     },
   }),
-  logout: {
+  logout: (props) => ({
     cursor: 'pointer',
-  },
+    width: props.matches ? 'auto' : '100px',
+  }),
+  signin: (props) => ({
+    width: props.matches ? '300px' : '180px',
+    display: ' flex',
+    marginRight: props.matches ? '40px' : '20px',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    fontSize: props.matches ? '20px' : '14px',
+  }),
 }));

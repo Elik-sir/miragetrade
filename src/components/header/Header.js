@@ -7,7 +7,6 @@ import CartDropdown from '../cart-dropdown/cart-dropdown';
 import { ReactComponent as Logo } from '../../assets/MIRAGETRADE.svg';
 import CartIcon from '../cart-icon/cart-icon';
 import Avatar from '@material-ui/core/Avatar';
-import './Header.styles.css';
 import { auth } from '../../firebase/firebase.utils';
 import { useStyles } from './styles';
 import UserProfile from '../UserProfile/UserProfile';
@@ -38,7 +37,7 @@ const Header = ({ currentUser, toggleCartHidden, hidden, toggleDialog }) => {
           <Logo width={matches ? '350px' : matches2 ? '250px' : '125px'} />
         </Link>
       </div>
-      <div className='signin' style={{ width: 'auto' }}>
+      <div className={classes.signin}>
         <div className={classes.logout}>
           <Button
             aria-controls='customized-menu'
@@ -61,7 +60,11 @@ const Header = ({ currentUser, toggleCartHidden, hidden, toggleDialog }) => {
                 <Avatar
                   alt='avatar'
                   src={currentUser.photoURL}
-                  style={{ marginLeft: '8px' }}
+                  style={{
+                    marginLeft: '8px',
+                    width: matches ? '40px' : '25px',
+                    height: matches ? '40px' : '25px',
+                  }}
                 />
               </>
             ) : (

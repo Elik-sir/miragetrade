@@ -1,5 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 export const useStyles = makeStyles((theme) => ({
+  //Стили для Диалогового окна редактирования профиля
   avatar: {
     marginLeft: 'auto',
     marginRight: 'auto',

@@ -1,5 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 export const useStyles = makeStyles((theme) => ({
+  //Стили для бокового блока подробности товара
   itemInfo: {
     color: ' white',
     border: ' 2px solid rgb(102, 99, 99);',
@@ -36,6 +37,7 @@ export const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     fontSize: '24px',
   },
+  //Стили для диалогового окна
   dialog: {
     background:
       'url(https://wallpaperscave.ru/images/thumbs/category/355x200/18/06-28/games-counter-strike-global-offensive-62143.jpg) no-repeat',

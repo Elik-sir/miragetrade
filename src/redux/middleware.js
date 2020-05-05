@@ -1,6 +1,7 @@
 import { ASYNC_START, ASYNC_END } from './constants';
-
-const promiseMiddleware = store => next => action => {
+//Проверка экшена на ассинхронность
+const promiseMiddleware = (store) => (next) => (action) => {
+  //Если action.payload ассинхронная функция, то начинается ассинхронный запрос
   if (isPromise(action.payload)) {
     store.dispatch({ type: ASYNC_START, subtype: action.type });
 
@@ -8,7 +9,7 @@ const promiseMiddleware = store => next => action => {
     const skipTracking = action.skipTracking;
 
     action.payload.then(
-      res => {
+      (res) => {
         const currentState = store.getState();
         if (!skipTracking && currentState.viewChangeCounter !== currentView) {
           return;
@@ -21,7 +22,7 @@ const promiseMiddleware = store => next => action => {
         });
         store.dispatch(action);
       },
-      error => {
+      (error) => {
         const currentState = store.getState();
         if (!skipTracking && currentState.viewChangeCounter !== currentView) {
           return;
@@ -45,6 +46,6 @@ const promiseMiddleware = store => next => action => {
   next(action);
 };
 
-const isPromise = v => v && typeof v.then === 'function';
+const isPromise = (v) => v && typeof v.then === 'function';
 
 export { promiseMiddleware };

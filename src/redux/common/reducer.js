@@ -19,7 +19,7 @@ const defaultState = {
   toggleDialogDelete: false,
   alert: { open: false, message: '', severity: '' },
 };
-
+//На вход приходит объект action. Оператор switch выбирает case по значению action.type и возвращает объект
 const commonReducer = (state = defaultState, action) => {
   switch (action.type) {
     case GET_REVIEWS:

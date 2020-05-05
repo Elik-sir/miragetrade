@@ -1,5 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 export const useStyles = makeStyles((theme) => ({
+  //Стили для выпадающей корзины
   cartDropdown: {
     position: 'absolute',
     width: '220px',
@@ -14,10 +15,12 @@ export const useStyles = makeStyles((theme) => ({
     zIndex: '5',
     textAlign: 'center',
   },
+  //Стили для сообщения о пустой корзины
   emptyMessage: {
     fontSize: '28px',
     margin: '50px auto',
   },
+  //стили для предметов в корзине
   cartItems: {
     height: '270px',
     display: 'flex',
@@ -32,11 +35,13 @@ export const useStyles = makeStyles((theme) => ({
       backgroundColor: theme.palette.primary.main,
     },
   },
+  //Стили для кнопки
   checkoutbtn: {
     padding: '10px 3px',
     fontSize: '16px',
     marginTop: 'auto',
   },
+  //Стили для ссылки
   link: {
     color: 'white',
     textDecoration: 'none',

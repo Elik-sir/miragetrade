@@ -1,5 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 export const useStyles = makeStyles((theme) => ({
+  //Стили Для предмета на странице Корзина
   checkoutItem: {
     width: '100%',
     display: 'flex',

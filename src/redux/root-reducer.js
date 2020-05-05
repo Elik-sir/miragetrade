@@ -5,13 +5,13 @@ import shopReducer from './shop/reducers';
 import userReducer from './user/reducers';
 import cartReducer from './cart/reducer';
 import commonReducer from './common/reducer';
-
+//настройка Localstorage
 const persistConfig = {
   key: 'root',
   storage,
   whitelist: ['cart'],
 };
-
+//Соединение всех редьюсеров
 const rootReducer = combineReducers({
   items: shopReducer,
   user: userReducer,

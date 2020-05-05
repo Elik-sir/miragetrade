@@ -1,5 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 export const useStyles = makeStyles((theme) => ({
+  //Стиль для товара
   cartItem: {
     width: '100%',
     display: 'flex',
@@ -9,7 +10,7 @@ export const useStyles = makeStyles((theme) => ({
   img: {
     width: '30%',
   },
-
+  //Стиль для подробностей товара
   itemDetails: {
     width: '70%',
     display: 'flex',

@@ -1,5 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 export const useStyles = makeStyles((theme) => ({
+  //Стили для Главной страницы
   title: {
     color: '#e53935',
     marginBottom: '100px',

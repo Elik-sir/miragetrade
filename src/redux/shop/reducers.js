@@ -4,7 +4,6 @@ import {
   GET_PRICE,
   FILTER_ITEMS,
   TOGGLE_DIALOG,
-  SHOW_SNACK,
 } from './constants';
 import { ASYNC_START, ASYNC_END } from '../constants';
 const initial_state = {
@@ -16,9 +15,8 @@ const initial_state = {
   filter: '',
   toggle: false,
   errorPrice: false,
-  isopenSnack: false,
 };
-
+//На вход приходит объект action. Оператор switch выбирает case по значению action.type и возвращает объект.
 const shopReducer = (state = initial_state, action) => {
   switch (action.type) {
     case GET_ITEMS:
@@ -68,11 +66,6 @@ const shopReducer = (state = initial_state, action) => {
       return {
         ...state,
         toggle: !state.toggle,
-      };
-    case SHOW_SNACK:
-      return {
-        ...state,
-        isopenSnack: action.payload,
       };
     default:
       return state;

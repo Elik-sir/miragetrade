@@ -5,16 +5,11 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import { toggleDialog, showSnack } from '../../redux/shop/actions';
+import { toggleDialog } from '../../redux/shop/actions';
 import { addItem } from '../../redux/cart/actions';
 import { useStyles } from './styles';
 import { Skeleton } from '@material-ui/lab';
-import Snackbar from '@material-ui/core/Snackbar';
-import MuiAlert from '@material-ui/lab/Alert';
 
-const Alert = (props) => {
-  return <MuiAlert elevation={6} variant='filled' {...props} />;
-};
 const ItemInfoDialog = ({
   addItem,
   isLoadingPrice,
@@ -23,18 +18,9 @@ const ItemInfoDialog = ({
   item,
   open,
   error,
-  showSnack,
-  openAlert,
 }) => {
   const classes = useStyles();
 
-  const handleClose = (event, reason) => {
-    if (reason === 'clickaway') {
-      return;
-    }
-
-    showSnack(false);
-  };
   return (
     <Dialog
       open={open}
@@ -95,7 +81,6 @@ const ItemInfoDialog = ({
           <Button
             onClick={() => {
               addItem({ ...item, sale_price });
-              showSnack(true);
             }}
             color='primary'
             disabled={isLoadingPrice ? true : false}
@@ -103,17 +88,6 @@ const ItemInfoDialog = ({
             Добавить в корзину
           </Button>
         </DialogActions>
-        <Snackbar
-          open={openAlert}
-          anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
-          key={{ vertical: 'top', horizontal: 'center' }}
-          autoHideDuration={6000}
-          onClose={handleClose}
-        >
-          <Alert onClose={handleClose} severity='success'>
-            Товар добавлен в корзину
-          </Alert>
-        </Snackbar>
       </div>
     </Dialog>
   );
@@ -133,7 +107,6 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   toggle: () => dispatch(toggleDialog()),
   addItem: (item) => dispatch(addItem(item)),
-  showSnack: (isOpen) => dispatch(showSnack(isOpen)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ItemInfoDialog);
