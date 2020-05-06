@@ -6,6 +6,7 @@ export const useStyles = makeStyles((theme) => ({
     marginBottom: '100px',
     marginTop: '100px',
   },
+  //СТиль для картинки
   Picture: {
     background:
       'url(https://steamcdn-a.akamaihd.net/steamcommunity/public/images/clans/3381077/d81306d2d9581df32202e9dcc2c8451797af091a.png) no-repeat',
@@ -19,7 +20,7 @@ export const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     position: 'relative',
   },
-
+  //Стиль для нижнего меню
   FAQ: {
     height: '7%',
     display: 'flex',
@@ -37,6 +38,7 @@ export const useStyles = makeStyles((theme) => ({
     marginBottom: 'auto',
     color: 'white',
   },
+  //стили для ссылок
   link: {
     color: 'white',
     textDecoration: 'none',
@@ -46,6 +48,7 @@ export const useStyles = makeStyles((theme) => ({
       color: '#ff7961',
     },
   },
+  //Стиль для нижний части страницы
   wrapperFooter: {
     height: '60px',
     textAlign: 'center',

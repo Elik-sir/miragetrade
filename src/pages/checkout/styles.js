@@ -11,6 +11,7 @@ export const useStyles = makeStyles((theme) => ({
     margin: '50px auto 0',
     paddingBottom: '64px',
   },
+  //Стили для заголовка корзины
   checkoutHeader: {
     width: '100%',
     padding: '10px 0',
@@ -35,6 +36,7 @@ export const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-between',
     alignItems: 'center',
   },
+  //Стиль для кнопки
   btnBay: {
     fontSize: '24px',
     width: '135px',

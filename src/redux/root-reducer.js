@@ -5,7 +5,7 @@ import shopReducer from './shop/reducers';
 import userReducer from './user/reducers';
 import cartReducer from './cart/reducer';
 import commonReducer from './common/reducer';
-//настройка Localstorage
+//настройка persistStore
 const persistConfig = {
   key: 'root',
   storage,

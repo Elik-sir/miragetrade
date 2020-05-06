@@ -15,7 +15,7 @@ const tokenPlugin = (req) => {
     req.set('authorization', `Token ${token}`);
   }
 };
-
+//настройка методов запросов
 const requests = {
   del: (url) =>
     superagent.del(`${API_ROOT}${url}`).use(tokenPlugin).then(responseBody),
@@ -32,7 +32,7 @@ const requests = {
       .use(tokenPlugin)
       .then(responseBody),
 };
-
+//Запросы
 const Items = {
   getAll: () => requests.get('/'),
   getItemInfo: (itemName) => requests.post('/currentItem', { item: itemName }),

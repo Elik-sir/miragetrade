@@ -45,7 +45,7 @@ const ReviewsPage = ({
             padding: '16px 0',
           }}
         >
-          <Grid item xs={12} sm={10} md={8} lg={6}>
+          <Grid item xs={12} sm={10} md={8} lg={4} style={{ width: '100%' }}>
             <Reviews />
           </Grid>
           <Grid

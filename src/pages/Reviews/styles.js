@@ -10,15 +10,18 @@ export const useStyles = makeStyles((theme) => ({
     backgroundColor: '#414040',
     margin: '5px',
   },
+  //Стиль для заголовка страницы
   title: {
     width: '100%',
     display: 'flex',
     justifyContent: 'center',
     flexDirection: 'column',
   },
+  //Стиль для анимации
   fade: {
     marginBottom: theme.spacing(2),
   },
+  //стили для пагинации
   pagination: { width: '100%' },
   ul: { '& > li > button': { color: 'white' } },
   wrapperreviewForm: {
